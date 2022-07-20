@@ -16,11 +16,13 @@ function App() {
 
   const [people,setPeople] = useState(data);
   
-  const deletePerson = index=>{
-    console.log('Deleting ',index);
+  const deletePerson = personToBeDeleted=>{
+    console.log('Deleting ',personToBeDeleted);
     var tempPeople = people;
 
-    tempPeople =  tempPeople.splice(index,1);
+    tempPeople =  tempPeople.filter(person=>{
+      return person !== personToBeDeleted
+    })
     setPeople(tempPeople);
 
   }
@@ -34,7 +36,7 @@ function App() {
     {people.map((person,index)=>(
     <div key={index}>
       <Person name={person.name} description={person.description}/>
-      <button onClick={()=>{deletePerson(index)}}>Delete</button>
+      <button onClick={()=>{deletePerson(person)}}>Delete</button>
       </div>
     ))}
     </div>
