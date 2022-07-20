@@ -6,11 +6,13 @@ function App() {
   const data = [
     {
       name:"Tsion",
-      description:"This is about tsion"
+      description:"This is about tsion",
+      age:17
     },
     {
       name:"Daniel",
-      description:"This is about daniels"
+      description:"This is about daniels",
+      age:19
     }
   ];
 
@@ -35,12 +37,13 @@ function App() {
 
     {people.map((person,index)=>(
     <div key={index}>
-      <Person name={person.name} description={person.description}/>
+      <Person name={person.name} description={person.description} age={person.age}/>
       <button onClick={()=>{deletePerson(person)}}>Delete</button>
       </div>
     ))}
     </div>
   );
+  
 }
 
 export default App;
