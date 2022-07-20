@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import Person from "./components/Person";
 
 function App() {
+
+  const data = [
+    {
+      name:"Tsion",
+      description:"This is about tsion"
+    },
+    {
+      name:"Daniel",
+      description:"This is about daniels"
+    }
+  ];
+
+  const [people,setPeople] = useState(data);
+  
+  const deletePerson = index=>{
+    console.log('Deleting ',index);
+    var tempPeople = people;
+
+    tempPeople =  tempPeople.splice(index,1);
+    setPeople(tempPeople);
+
+  }
+
+  useEffect(()=>{},[]);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    {people.map((person,index)=>(
+    <div key={index}>
+      <Person name={person.name} description={person.description}/>
+      <button onClick={()=>{deletePerson(index)}}>Delete</button>
+      </div>
+    ))}
     </div>
   );
 }
