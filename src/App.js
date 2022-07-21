@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
-import Person from "./components/Person";
+import { createContext, useContext, useEffect, useState } from "react";
+import Layout from "./components/Layout";
+
+export const AppStateContext = createContext();
 
 function App() {
 
@@ -32,16 +34,17 @@ function App() {
   useEffect(()=>{},[]);
 
 
-  return (
-    <div className="App">
 
-    {people.map((person,index)=>(
-    <div key={index}>
-      <Person name={person.name} description={person.description} age={person.age}/>
-      <button onClick={()=>{deletePerson(person)}}>Delete</button>
-      </div>
-    ))}
+  return (
+
+    <AppStateContext.Provider value={{people,deletePerson}}>
+    <div className="App">
+     <p>Number : {people.length}</p>
+     
+      <Layout people ={people}/>
+    
     </div>
+    </AppStateContext.Provider>
   );
   
 }
