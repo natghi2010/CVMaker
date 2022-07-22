@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import Layout from "./components/Layout";
 import Person from "./components/Person";
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
   ];
 
   const [people,setPeople] = useState(data);
+
+
   
   const deletePerson = personToBeDeleted=>{
     console.log('Deleting ',personToBeDeleted);
@@ -33,15 +36,11 @@ function App() {
 
 
   return (
-    <div className="App">
-
-    {people.map((person,index)=>(
-    <div key={index}>
-      <Person name={person.name} description={person.description} age={person.age}/>
-      <button onClick={()=>{deletePerson(person)}}>Delete</button>
-      </div>
-    ))}
-    </div>
+    <AppContext value={people}>
+        <div>
+          <Layout/>
+        </div>
+    </AppContext>
   );
   
 }
