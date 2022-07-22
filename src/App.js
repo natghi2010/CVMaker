@@ -1,11 +1,14 @@
-import { Typography } from "@mui/material";
+import Layout from "./components/Layout";
+import './App.css';
+import MainCard from "./components/MainCard";
 
-const app = ()=> {
+function App(){
     return (
-        <Typography>
-        Tsion
-        </Typography>
+        <div  className="layout">
+      <Layout/>
+      <MainCard/>
+      </div>
     ) 
 }
 
-export default app;
+export default App;
