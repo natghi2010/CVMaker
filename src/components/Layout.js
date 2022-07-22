@@ -1,11 +1,26 @@
-import  { Component } from 'react';
-import Person from './Person';
+import { Component, useContext } from "react";
+import { AppStateContext } from "../App";
+import Person from "./Person";
 
+export default function Layout() {
+  const ContextData = useContext(AppStateContext);
 
-export default class Layout extends Component {
-    render(){
+  return (
+    <div>
+      <h1>People</h1>
+      {ContextData.people.map((person,index) => {
         return (
-           <Person/>
-          );
-    }   
+         <>
+          <Person
+            key={person.index}
+            name={person.name}
+            description={person.description}
+            age={person.age}
+          />
+          <button onClick={()=>ContextData.deletePerson(person)}>Delete</button>
+         </>
+        );
+      })}
+    </div>
+  );
 }
