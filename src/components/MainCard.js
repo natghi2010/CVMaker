@@ -2,6 +2,8 @@
 import { autocompleteClasses } from '@mui/material';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import FormContainer from './MainForm/FormContainer';
+import TitleHolder from './Sections/TitleHolder';
 
 function MainCard() {
     return (
@@ -10,15 +12,17 @@ function MainCard() {
           display: 'flex',
           flexWrap: 'wrap',
           '& > :not(style)': {
-            m: 10,
-            width: 1345,
-            height: 20,
-            paddingTop: 65,
-            //paddingLeft: 30,
+            margin: 15,
+            width: 725,
+            height: 3,
+            padding: 32,
           },
-        }}
+        }} 
       >
-        <Paper elevation={0} />
+        <Paper elevation={0}>
+        <TitleHolder/>
+        <FormContainer/>
+        </Paper>
       </Box>
     );
   }

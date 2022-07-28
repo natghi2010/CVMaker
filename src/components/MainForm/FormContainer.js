@@ -10,17 +10,24 @@ import Typography from '@mui/material/Typography';
 
 const steps = [
   {
-    label: 'Select campaign settings',
+    label: 'Import Files',
+    description: 'Browse and Upload',
   },
   {
-    label: 'Create an ad group',
+    label: 'Data Mapping',
+    description: 'Select and mapp it',
   },
   {
-    label: 'Create an ad',
+    label: 'Entity Mapping',
+    description: 'Choose the name',
   },
+  {
+    label:'Summery',
+    description:'Review and confirm',
+  }
 ];
 
-function VerticalLinearStepper() {
+export default function VerticalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -42,7 +49,7 @@ function VerticalLinearStepper() {
           <Step key={step.label}>
             <StepLabel
               optional={
-                index === 2 ? (
+                index === 3 ? (
                   <Typography variant="caption">Last step</Typography>
                 ) : null
               }
@@ -73,16 +80,6 @@ function VerticalLinearStepper() {
           </Step>
         ))}
       </Stepper>
-      {activeStep === steps.length && (
-        <Paper square elevation={0} sx={{ p: 3 }}>
-          <Typography>All steps completed - you&apos;re finished</Typography>
-          <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-            Reset
-          </Button>
-        </Paper>
-      )}
     </Box>
   );
 }
-
-export default FormContainer;

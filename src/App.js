@@ -8,7 +8,6 @@ function App(){
       <div  className="layout">
         <Layout/>
         <MainCard/>
-        <FormContainer/>
       </div>
     ) 
 }
