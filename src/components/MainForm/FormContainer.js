@@ -76,10 +76,24 @@ export default function VerticalLinearStepper() {
                   </Button>
                 </div>
               </Box>
+
+              
             </StepContent>
+
+            
           </Step>
         ))}
+
+        
       </Stepper>
+
+      <div>
+              Box 1
+              </div>
+
+              <div>
+              Box 2
+              </div>
     </Box>
   );
 }
