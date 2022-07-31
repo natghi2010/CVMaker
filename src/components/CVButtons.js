@@ -1,4 +1,4 @@
-function CVButtons({title, subtitle}) {
+function CVButtons() {
     return (
       <div className="CVButton">
        Button
