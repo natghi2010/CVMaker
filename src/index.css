@@ -1,4 +1,46 @@
-.layout{
-background-color: #eaeef0 !important ;
+html{
+    height: 100%;
+    background-color: #ebeff2;
+}
 
+/* Card in the center of the screen */
+.card{
+    width: 1200px;
+    height: 570px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 30px;
+    display: inline-block;
+}
+
+.title{
+    color:#adadad;
+}
+
+.minorTitle{
+    color:#adadad;
+}
+
+.sidenav{
+    border-right: thin #eee solid;
+    width: 30%;
+    float: left;
+}
+
+.formContainer{
+    width: 70%;
+    float: right;
+}
+
+.CVButton{
+    display: block;
+    float: right;
+    margin-top: 10px;
 }

@@ -10,24 +10,21 @@ import Typography from '@mui/material/Typography';
 
 const steps = [
   {
-    label: 'Import Files',
-    description: 'Browse and Upload',
+    label: 'Select campaign settings',
+    description: ``,
   },
   {
-    label: 'Data Mapping',
-    description: 'Select and mapp it',
+    label: 'Create an ad group',
+    description:
+      '',
   },
   {
-    label: 'Entity Mapping',
-    description: 'Choose the name',
+    label: 'Create an ad',
+    description: ``,
   },
-  {
-    label:'Summery',
-    description:'Review and confirm',
-  }
 ];
 
-export default function VerticalLinearStepper() {
+export default function Sidenav() {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -43,13 +40,13 @@ export default function VerticalLinearStepper() {
   };
 
   return (
-    <Box sx={{ maxWidth: 400 }}>
+    <Box sx={{ maxWidth: 300 }} className="sidenav">
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((step, index) => (
           <Step key={step.label}>
             <StepLabel
               optional={
-                index === 3 ? (
+                index === 2 ? (
                   <Typography variant="caption">Last step</Typography>
                 ) : null
               }
@@ -76,24 +73,18 @@ export default function VerticalLinearStepper() {
                   </Button>
                 </div>
               </Box>
-
-              
             </StepContent>
-
-            
           </Step>
         ))}
-
-        
       </Stepper>
-
-      <div>
-              Box 1
-              </div>
-
-              <div>
-              Box 2
-              </div>
+      {activeStep === steps.length && (
+        <Paper square elevation={0} sx={{ p: 3 }}>
+          <Typography>All steps completed - you&apos;re finished</Typography>
+          <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
+            Reset
+          </Button>
+        </Paper>
+      )}
     </Box>
   );
 }
