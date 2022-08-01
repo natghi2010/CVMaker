@@ -7,46 +7,25 @@ import StepContent from '@mui/material/StepContent';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
+import { CV } from './MainCard';
+import { useContext } from 'react';
 
-const steps = [
-  {
-    label: 'Select campaign settings',
-    description: ``,
-  },
-  {
-    label: 'Create an ad group',
-    description:
-      '',
-  },
-  {
-    label: 'Create an ad',
-    description: ``,
-  },
-];
+
+
+
 
 export default function Sidenav() {
-  const [activeStep, setActiveStep] = React.useState(0);
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-  };
+ 
+   const CVContext = useContext(CV);
 
   return (
     <Box sx={{ maxWidth: 300 }} className="sidenav">
-      <Stepper activeStep={activeStep} orientation="vertical">
-        {steps.map((step, index) => (
+      <Stepper activeStep={CVContext.activeStep} orientation="vertical">
+        {CVContext.steps.map((step, index) => (
           <Step key={step.label}>
             <StepLabel
               optional={
-                index === 2 ? (
+                index === 3 ? (
                   <Typography variant="caption">Last step</Typography>
                 ) : null
               }
@@ -59,14 +38,14 @@ export default function Sidenav() {
                 <div>
                   <Button
                     variant="contained"
-                    onClick={handleNext}
+                    onClick={CVContext.handleNext}
                     sx={{ mt: 1, mr: 1 }}
                   >
-                    {index === steps.length - 1 ? 'Finish' : 'Continue'}
+                    {index === CVContext.steps.length - 1 ? 'Finish' : 'Continue'}
                   </Button>
                   <Button
                     disabled={index === 0}
-                    onClick={handleBack}
+                    onClick={CVContext.handleBack}
                     sx={{ mt: 1, mr: 1 }}
                   >
                     Back
@@ -77,10 +56,10 @@ export default function Sidenav() {
           </Step>
         ))}
       </Stepper>
-      {activeStep === steps.length && (
+      {CVContext.activeStep === CVContext.steps.length && (
         <Paper square elevation={0} sx={{ p: 3 }}>
           <Typography>All steps completed - you&apos;re finished</Typography>
-          <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
+          <Button onClick={CVContext.handleReset} sx={{ mt: 1, mr: 1 }}>
             Reset
           </Button>
         </Paper>
