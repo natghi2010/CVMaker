@@ -2,6 +2,7 @@ import React, { createContext } from "react";
 import FormContainer from "./FormContainer";
 import Sidenav from "./Sidenav";
 import Title from "./Title";
+import Footer from "./Footer";
 
 export const CV = createContext();
 
@@ -54,6 +55,7 @@ function MainCard() {
         <div className="cardBody">
           <Sidenav />
           <FormContainer />
+          <Footer/>
        
         </div>
       </CV.Provider>

@@ -21,11 +21,11 @@ html{
 }
 
 .title{
-    color:#616060;
+    color:#818181;
 }
 
 .minorTitle{
-    color:#979797;
+    color:#adadad;
 }
 
 .sidenav{
@@ -40,6 +40,22 @@ html{
 }
 
 .CVButton{
+    display: block;
+    float: right;
+    margin-top: 10px;
+}
+
+.footer {
+    position: fixed;
+    padding: 5px 0px 75px 90px;
+    bottom: 0;
+    width: 80%;
+    /* Height of the footer*/ 
+    height: 40px;
+    background:#fff;
+}
+
+.footerButton{
     display: block;
     float: right;
     margin-top: 10px;
