@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup } from "@mui/material";
+import { Box, Button, ButtonGroup, } from "@mui/material";
 import { CV } from './MainCard';
 import { useContext } from 'react';
 
@@ -13,7 +13,6 @@ function Footer() {
             variant="text" 
             aria-label="text button group"
             size="small">
-
                 <Button
                 disabled={CVContext.activeStep === 0}
                 onClick={CVContext.handleBack}

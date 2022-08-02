@@ -4,8 +4,6 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import StepContent from '@mui/material/StepContent';
-import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import { CV } from './MainCard';
 import { useContext } from 'react';
@@ -38,14 +36,6 @@ export default function Sidenav() {
           </Step>
         ))}
       </Stepper>
-      {CVContext.activeStep === CVContext.steps.length && (
-        <Paper square elevation={0} sx={{ p: 3 }}>
-          <Typography>All steps completed - you&apos;re finished</Typography>
-          <Button onClick={CVContext.handleReset} sx={{ mt: 1, mr: 1 }}>
-            Reset
-          </Button>
-        </Paper>
-      )}
     </Box>
   );
 }

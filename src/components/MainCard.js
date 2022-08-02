@@ -23,20 +23,20 @@ function MainCard() {
 
   const steps = [
     {
-      label: 'Import Files',
+      label: 'Basic Info',
       description: ``,
     },
     {
-      label: 'Data Mapping',
+      label: 'Education',
       description:
         '',
     },
     {
-      label: 'Entity mapping',
+      label: 'Work Experience',
       description: ``,
     },
     {
-      label: 'Summary',
+      label: 'Skills',
       description: ``,
     },
   ];
@@ -56,7 +56,6 @@ function MainCard() {
           <Sidenav />
           <FormContainer />
           <Footer/>
-       
         </div>
       </CV.Provider>
     </div>
