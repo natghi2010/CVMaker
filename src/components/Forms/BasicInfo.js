@@ -11,17 +11,10 @@ export default function BasicInfo() {
       noValidate
       autoComplete="off"
     >
-      <div>
-        <TextField id="standard-basic" label="First Name" variant="INPUT"/>
-        <TextField id="standard-basic" label="Last Name" type="Standard"/>
-      </div>
-      <div>
-        <TextField id="standard-number" label="Age" type="number"/>
-        <TextField id="standard-basic" label="Email Address" type="Standard"/>
-      </div>
-      <div>
-        <TextField id="standard-number" label="Phone Number" type="number"/>
-      </div>
+    <div>
+    <TextField id="standard-basic" label="Highschool" variant="standard" />
+    <TextField id="standard-basic" label="College/Community School" variant="standard"/>
+</div>
     </Box>
   )
 }

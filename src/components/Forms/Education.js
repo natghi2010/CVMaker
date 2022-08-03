@@ -12,13 +12,8 @@ export default function Education() {
         noValidate
         autoComplete="off"
       >
-          <div>
-              <TextField id="standard-basic" label="Highschool" variant="standard" />
-              <TextField id="standard-basic" label="College/Community School" variant="standard"/>
-          </div>
-              
-  
-        
+    
+                
       </Box>
     );
   }
