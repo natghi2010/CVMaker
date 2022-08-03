@@ -24,11 +24,7 @@ export default function BasicInfo() {
       <div>
       {CVContext.user.basicInfo.name}
         <TextField id="standard-basic"
-        onChange={(ev)=>{
-          setUser(
-            
-          )
-        }}
+        onChange={(e) => setUser({...CVContext.user, basicInfo: {...CVContext.user.basicInfo, name: e.target.value}})}
         
         label="Highschool" variant="standard" />
         <TextField
@@ -40,5 +36,6 @@ export default function BasicInfo() {
     </Box>
   );
 }
+   
 
 
