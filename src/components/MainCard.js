@@ -3,6 +3,7 @@ import FormContainer from "./FormContainer";
 import Sidenav from "./Sidenav";
 import Title from "./Title";
 import Footer from "./Footer";
+import BasicInfo from "./Forms/BasicInfo";
 
 export const CV = createContext();
 
@@ -24,7 +25,7 @@ function MainCard() {
   const steps = [
     {
       label: 'Basic Info',
-      description: ``,
+      description: '',
     },
     {
       label: 'Education',
@@ -50,7 +51,8 @@ function MainCard() {
         handleBack,
         handleReset,
         handleNext,
-        steps
+        steps,
+        BasicInfo
        }}>
         <div className="cardBody">
           <Sidenav />
