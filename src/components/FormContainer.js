@@ -7,8 +7,6 @@ import forms from "./Forms/reference/formRef";
 function FormContainer() {
 
   const CVContext = useContext(CV);
-
- 
     return (
       <div className="formContainer">
          <h2>{CVContext.steps[CVContext.activeStep].label}</h2>

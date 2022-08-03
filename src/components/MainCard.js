@@ -9,6 +9,11 @@ export const CV = createContext();
 
 function MainCard() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const [user, setUser] = React.useState({
+      basicInfo:{
+        name:"Daniel"
+      }
+  });
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -52,7 +57,8 @@ function MainCard() {
         handleReset,
         handleNext,
         steps,
-        BasicInfo
+        user,
+        setUser
        }}>
         <div className="cardBody">
           <Sidenav />
