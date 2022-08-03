@@ -3,7 +3,6 @@ import FormContainer from "./FormContainer";
 import Sidenav from "./Sidenav";
 import Title from "./Title";
 import Footer from "./Footer";
-import BasicInfo from "./Forms/BasicInfo";
 
 export const CV = createContext();
 
@@ -12,10 +11,26 @@ function MainCard() {
   const [user, setUser] = React.useState({
       basicInfo:{
         name:"Daniel",
+        address: "18",
         email:"natghi2010@gmail.com",
         phone_number:"(647) 555-5555",
-      }
-      
+      },
+     workExperinces: [
+        {
+          company_name:"TestPick",
+          title : "Developer",
+          description : "",
+          start_date : "12/05/2021",
+          end_date:"14/05/2021"
+        },
+        {
+          company_name:"Sunchips",
+          title : "Developer",
+          description : "",
+          start_date : "12/05/2021",
+          end_date:"14/05/2021"
+        }
+      ]
   });
 
   const handleNext = () => {
