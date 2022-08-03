@@ -11,8 +11,11 @@ function MainCard() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [user, setUser] = React.useState({
       basicInfo:{
-        name:"Daniel"
+        name:"Daniel",
+        email:"natghi2010@gmail.com",
+        phone_number:"(647) 555-5555",
       }
+      
   });
 
   const handleNext = () => {
