@@ -12,7 +12,7 @@ export default function BasicInfo() {
       autoComplete="off"
     >
       <div>
-        <TextField id="standard-basic" label="First Name" type="Standard"/>
+        <TextField id="standard-basic" label="First Name" variant="INPUT"/>
         <TextField id="standard-basic" label="Last Name" type="Standard"/>
       </div>
       <div>

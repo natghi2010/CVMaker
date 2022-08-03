@@ -1,6 +1,9 @@
-import { useContext } from "react";
+
 import BasicInfo from "./Forms/BasicInfo";
+import {useContext } from "react";
+import Education from "./Forms/Education";
 import { CV } from "./MainCard";
+
 
 function FormContainer() {
 
@@ -9,8 +12,9 @@ function FormContainer() {
   console.log(CVContext);
     return (
       <div className="formContainer">
-          <h2>{CVContext.steps[CVContext.activeStep].label}</h2>
-          
+         <h2>{CVContext.steps[CVContext.activeStep].label}</h2>
+         <Education/>
+         <BasicInfo/>
       </div>
     );
   }
