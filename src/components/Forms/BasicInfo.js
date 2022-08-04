@@ -2,10 +2,10 @@ import * as React from "react";
 import { Box, TextField } from "@mui/material";
 import { CV } from "../MainCard";
 
-
 export default function BasicInfo() {
-  const CVContext = React.useContext(CV)
+  const CVContext = React.useContext(CV);
   const setUser = CVContext.setUser;
+  const user = CVContext.user;
   return (
     <Box
       component="form"
@@ -15,27 +15,61 @@ export default function BasicInfo() {
           ml: 5,
           mb: 5.5,
           mt: 0.5,
-          width: "35ch",
+          width: "30ch",
         },
       }}
       noValidate
       autoComplete="off"
     >
       <div>
-      {CVContext.user.basicInfo.name}
-        <TextField id="standard-basic"
-        onChange={(e) => setUser({...CVContext.user, basicInfo: {...CVContext.user.basicInfo, name: e.target.value}})}
-        
-        label="Highschool" variant="standard" />
         <TextField
           id="standard-basic"
-          label="College/Community School"
+          onChange={(e) =>
+            setUser({
+              ...user,
+              basicInfo: { ...user.basicInfo, name: e.target.value },
+            })
+          }
+          label="Name"
+          variant="standard"
+        />
+
+        <TextField
+          id="standard-number"
+          onChange={(e) =>
+            setUser({
+              ...CVContext.user,
+              basicInfo: { ...CVContext.user.basicInfo, age: e.target.value },
+            })
+          }
+          label="Phone Number"
+          variant="standard"
+        />
+      </div>
+      <div>
+        <TextField
+          id="standard-basic"
+          onChange={(e) =>
+            setUser({
+              ...CVContext.user,
+              basicInfo: { ...CVContext.user.basicInfo, email: e.target.value },
+            })
+          }
+          label="Email"
+          variant="standard"
+        />
+        <TextField
+          id="standard-basic"
+          onChange={(e) =>
+            setUser({
+              ...CVContext.user,
+              basicInfo: { ...CVContext.user.basicInfo, address: e.target.value },
+            })
+          }
+          label="Address"
           variant="standard"
         />
       </div>
     </Box>
   );
 }
-   
-
-

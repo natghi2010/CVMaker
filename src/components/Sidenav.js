@@ -8,10 +8,6 @@ import Typography from '@mui/material/Typography';
 import { CV } from './MainCard';
 import { useContext } from 'react';
 
-
-
-
-
 export default function Sidenav() {
  
   const CVContext = useContext(CV);
