@@ -1,29 +1,44 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import {
+  Button,
+  Fab,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from "@mui/material";
 import { CV } from "../MainCard";
+import educationTypes from "./reference/educationTypeRef";
+import EducationParts from "./Parts/EducationParts";
+import { AddCircleOutline, AddIcCallOutlined, AddOutlined, HdrPlus, PlusOneOutlined } from "@mui/icons-material";
 
 export default function Education() {
   const CVContext = React.useContext(CV);
-  const setUser = CVContext.setUser;
-  const user = CVContext.user;
-
-  const [degree, setDegree] = React.useState("");
 
   return (
-    <Box
-      component="form"
-      sx={{
-        "& .MuiTextField-root": {
-          mr: 10,
-          ml: 5,
-          mb: 4,
-          mt: 0.3,
-          width: "30ch",
-        },
+    <div>
+      {CVContext.user.educationExperience.map((education, index) => {
+        return (
+          <>
+             
+            <EducationParts
+              className="educationParts"
+              key={index}
+              index={index}
+            />
+          </>
+        );
+      })}
+   <div align="right">
+    <Fab
+      color="primary"
+      aria-label="add"
+      className="addEducation"
+      onClick={() => {
+        CVContext.addEducation()
       }}
-      noValidate
-      autoComplete="off"
     >
       <div>
       <FormControl variant="standard" sx={{ mr: 10, ml: 5, mb: 5.5, mt: 0.5, minWidth: "30ch" }}>
