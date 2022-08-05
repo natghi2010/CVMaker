@@ -60,3 +60,11 @@ html{
     float: right;
     margin-top: 10px;
 }
+
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+.stylishTitle{
+    font-family: 'Square Peg', cursive !important;
+}

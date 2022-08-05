@@ -75,6 +75,7 @@ function MainCard() {
   return (
     <div className="card">
       <Title
+     
         title="CVMaker"
         subtitle="Follow the simple 4 Steps to complete your mapping"
       />
