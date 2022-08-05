@@ -67,7 +67,6 @@ export default function Education() {
           <MenuItem value={'Bachelors'}>Bachelor's Degree</MenuItem>
           <MenuItem value={'Masters'}>Master's Degree</MenuItem>
           <MenuItem value={'Doctrate'}>Doctoral degree</MenuItem>
-          <MenuItem value={'Professor'} >Professional degree</MenuItem>
         </Select>
         </FormControl>
         <br />
