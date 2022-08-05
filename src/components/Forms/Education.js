@@ -22,6 +22,7 @@ export default function Education() {
       {CVContext.user.educationExperience.map((education, index) => {
         return (
           <>
+             
             <EducationParts
               className="educationParts"
               key={index}

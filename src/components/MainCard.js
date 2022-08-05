@@ -8,7 +8,7 @@ import educationTypes from "./Forms/reference/educationTypeRef";
 export const CV = createContext();
 
 function MainCard() {
-  const [activeStep, setActiveStep] = React.useState(1);
+  const [activeStep, setActiveStep] = React.useState(2);
   const [user, setUser] = React.useState({
     basicInfo: {
       name: "Daniel",
@@ -29,18 +29,11 @@ function MainCard() {
   
     workExperinces: [
       {
-        company_name: "TestPick",
-        title: "Developer",
+        company_name: "",
+        title: "",
         description: "",
-        start_date: "12/05/2021",
-        end_date: "14/05/2021",
-      },
-      {
-        company_name: "Sunchips",
-        title: "Developer",
-        description: "",
-        start_date: "12/05/2021",
-        end_date: "14/05/2021",
+        start_date: "",
+        end_date: "",
       },
     ],
   });
@@ -62,7 +55,37 @@ function MainCard() {
 
 
 
-  
+  const removeEducation = (index) => {
+    setUser({
+      ...user,
+      educationExperience: user.educationExperience.filter((_, i) => i !== index),
+    });
+
+  }
+
+  const addWorkExperience = () => {
+    setUser({
+      ...user,
+      workExperinces: [
+        ...user.workExperinces,
+        {
+          company_name: "",
+          title: "",
+          description: "",
+          start_date: "",
+          end_date: "",
+        },
+      ],
+    });
+  }
+
+    const removeWorkExperience = (index) => {
+      setUser({
+        ...user,
+        workExperinces: user.workExperinces.filter((_, i) => i !== index),
+      });
+    }
+    
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -113,13 +136,16 @@ function MainCard() {
           user,
           setUser,
           educationTypes,
-          addEducation
+          addEducation,
+          removeEducation,
+          addWorkExperience,
+          removeWorkExperience,
         }}
       >
         <div className="cardBody">
           <Sidenav />
           <FormContainer />
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </CV.Provider>
     </div>
