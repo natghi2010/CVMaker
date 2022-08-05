@@ -6,6 +6,7 @@ export default function BasicInfo() {
   const CVContext = React.useContext(CV);
   const setUser = CVContext.setUser;
   const user = CVContext.user;
+  
   return (
     <Box
       component="form"

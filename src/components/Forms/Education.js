@@ -1,18 +1,101 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import { CV } from "../MainCard";
 
 export default function Education() {
-    return (
-      <Box
-        component="form"
-        sx={{
-          '& > :not(style)': { mt: 2, mr: 5, ml: 5, mb: 8,  width: '25ch' },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-    
-                
-      </Box>
-    );
-  }
+  const CVContext = React.useContext(CV);
+  const setUser = CVContext.setUser;
+  const user = CVContext.user;
+
+  const [degree, setDegree] = React.useState("");
+
+  return (
+    <Box
+      component="form"
+      sx={{
+        "& .MuiTextField-root": {
+          mr: 10,
+          ml: 5,
+          mb: 5.5,
+          mt: 0.5,
+          width: "30ch",
+        },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <div>
+      <FormControl variant="standard" sx={{ mr: 10, ml: 5, mb: 5.5, mt: 0.5, minWidth: "30ch" }}>
+        <InputLabel id="Degree">Type of Institution</InputLabel>
+        <Select
+          id="Inst"
+          value={degree}
+          onChange={(e) =>
+            setDegree(e.target.value)
+          }
+
+        >
+          <MenuItem value={'Diploma'}>High School</MenuItem>
+          <MenuItem value={'Associate'}>College</MenuItem>
+          <MenuItem value={'Bachelors'}>University</MenuItem>
+        </Select>
+        </FormControl>
+        <br />
+        <TextField
+          id="standard-basic"
+          onChange={(e) =>
+            setUser({
+              ...user,
+              Education: { ...user.Education, University: e.target.value },
+            })
+          }
+          label="University/College"
+          variant="standard"
+        />
+        <FormControl variant="standard" sx={{ mr: 10, ml: 5, mb: 5.5, mt: 0.5, minWidth: "30ch" }}>
+        <InputLabel id="Degree">Degree Type</InputLabel>
+        <Select
+          id="degree"
+          value={degree}
+          onChange={(e) =>
+            setDegree(e.target.value)
+          }
+          label="Degree Type"
+        >
+          <MenuItem value={'Diploma'}>Diploma</MenuItem>
+          <MenuItem value={'Associate'}>Associate Degree</MenuItem>
+          <MenuItem value={'Bachelors'}>Bachelor's Degree</MenuItem>
+          <MenuItem value={'Masters'}>Master's Degree</MenuItem>
+          <MenuItem value={'Doctrate'}>Doctoral degree</MenuItem>
+          <MenuItem value={'Professor'} >Professional degree</MenuItem>
+        </Select>
+        </FormControl>
+        <br />
+        <TextField
+          id="standard-basic"
+          onChange={(e) =>
+            setUser({
+              ...user,
+              Education: { ...user.Education, Major: e.target.value },
+            })
+          }
+          label="Major"
+          variant="standard"
+        />
+        <TextField
+          id="standard-number"
+          helperText="mm/dd/yyyy"
+          onChange={(e) =>
+            setUser({
+              ...user,
+              Education: { ...user.Education, Graduating_Year: e.target.value },
+            })
+          }
+          label="Graduating year"
+          variant="standard"
+        />
+      </div>
+    </Box>
+  );
+}
