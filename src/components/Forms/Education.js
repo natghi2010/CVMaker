@@ -17,8 +17,8 @@ export default function Education() {
         "& .MuiTextField-root": {
           mr: 10,
           ml: 5,
-          mb: 5.5,
-          mt: 0.5,
+          mb: 4,
+          mt: 0.3,
           width: "30ch",
         },
       }}
@@ -34,14 +34,13 @@ export default function Education() {
           onChange={(e) =>
             setDegree(e.target.value)
           }
-
         >
-          <MenuItem value={'Diploma'}>High School</MenuItem>
-          <MenuItem value={'Associate'}>College</MenuItem>
-          <MenuItem value={'Bachelors'}>University</MenuItem>
+          <MenuItem value={'HighSchool'}>High School</MenuItem>
+          <MenuItem value={'College'}>College</MenuItem>
+          <MenuItem value={'University'}>University</MenuItem>
         </Select>
         </FormControl>
-        <br />
+        <br/>
         <TextField
           id="standard-basic"
           onChange={(e) =>
@@ -50,7 +49,7 @@ export default function Education() {
               Education: { ...user.Education, University: e.target.value },
             })
           }
-          label="University/College"
+          label="Institution Name"
           variant="standard"
         />
         <FormControl variant="standard" sx={{ mr: 10, ml: 5, mb: 5.5, mt: 0.5, minWidth: "30ch" }}>
