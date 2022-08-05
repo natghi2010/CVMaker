@@ -3,11 +3,12 @@ import FormContainer from "./FormContainer";
 import Sidenav from "./Sidenav";
 import Title from "./Title";
 import Footer from "./Footer";
+import educationTypes from "./Forms/reference/educationTypeRef";
 
 export const CV = createContext();
 
 function MainCard() {
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState(1);
   const [user, setUser] = React.useState({
     basicInfo: {
       name: "Daniel",
@@ -15,34 +16,17 @@ function MainCard() {
       email: "natghi2010@gmail.com",
       phone_number: "(647) 555-5555",
     },
-    Education:
-    [
+
+    educationExperience:[
       {
-        certificate:"Diploma",
-        tag :"High School, College",
+        institution_type: 'High School',
+        instituion_name : '',
+        graduation_year : '',
+        degree_type : '',
       },
-      {
-        certificate: "Associate",
-        tag: "College, University",
-      },
-      {
-        certificate: "Bachelor's Degree",
-        tag: "College, University",
-      },
-      {
-        certificate: "Master's Degree",
-        tag: "University",
-      },
-      {
-        certificate: "Doctoral degree",
-        tag: "University",
-      }
-      ,
-      {
-        certificate: "Professonal Degree",
-        tag: "University",
-      }
+      
     ],
+  
     workExperinces: [
       {
         company_name: "TestPick",
@@ -60,6 +44,25 @@ function MainCard() {
       },
     ],
   });
+
+  const addEducation = () => {
+    setUser({
+      ...user,
+      educationExperience: [
+        ...user.educationExperience,
+        {
+          institution_type: "",
+          instituion_name: "",
+          graduation_year: "",
+          degree_type: "",
+        },
+      ],
+    })
+  }
+
+
+
+  
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -97,7 +100,7 @@ function MainCard() {
       <Title
      
         title="CVMaker"
-        subtitle="Follow the simple 4 Steps to complete your mapping"
+        subtitle="Follow the simple 4 Steps to complete your CV"
       />
 
       <CV.Provider
@@ -109,6 +112,8 @@ function MainCard() {
           steps,
           user,
           setUser,
+          educationTypes,
+          addEducation
         }}
       >
         <div className="cardBody">

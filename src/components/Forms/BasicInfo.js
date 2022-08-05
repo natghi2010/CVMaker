@@ -32,6 +32,7 @@ export default function BasicInfo() {
             })
           }
           label="Name"
+          value={user.basicInfo.name}
           variant="standard"
         />
 

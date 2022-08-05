@@ -6,7 +6,7 @@ html{
 /* Card in the center of the screen */
 .card{
     width: 1200px;
-    height: 570px;
+    min-height: 570px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -37,6 +37,7 @@ html{
 .formContainer{
     width: 70%;
     float: right;
+    min-height: 70vh;
 }
 
 .CVButton{
@@ -67,4 +68,13 @@ html{
 
 .stylishTitle{
     font-family: 'Square Peg', cursive !important;
+}
+
+.educationParts{
+ 
+    padding: 15px;
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
 }
