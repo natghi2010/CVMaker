@@ -1,29 +1,44 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import {
+  Button,
+  Fab,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from "@mui/material";
 import { CV } from "../MainCard";
+import educationTypes from "./reference/educationTypeRef";
+import EducationParts from "./Parts/EducationParts";
+import { AddCircleOutline, AddIcCallOutlined, AddOutlined, HdrPlus, PlusOneOutlined } from "@mui/icons-material";
 
 export default function Education() {
   const CVContext = React.useContext(CV);
-  const setUser = CVContext.setUser;
-  const user = CVContext.user;
-
-  const [degree, setDegree] = React.useState("");
 
   return (
-    <Box
-      component="form"
-      sx={{
-        "& .MuiTextField-root": {
-          mr: 10,
-          ml: 5,
-          mb: 5.5,
-          mt: 0.5,
-          width: "30ch",
-        },
+    <div>
+      {CVContext.user.educationExperience.map((education, index) => {
+        return (
+          <>
+             
+            <EducationParts
+              className="educationParts"
+              key={index}
+              index={index}
+            />
+          </>
+        );
+      })}
+   <div align="right">
+    <Fab
+      color="primary"
+      aria-label="add"
+      className="addEducation"
+      onClick={() => {
+        CVContext.addEducation()
       }}
-      noValidate
-      autoComplete="off"
     >
       <div>
       <FormControl variant="standard" sx={{ mr: 10, ml: 5, mb: 5.5, mt: 0.5, minWidth: "30ch" }}>
@@ -34,14 +49,13 @@ export default function Education() {
           onChange={(e) =>
             setDegree(e.target.value)
           }
-
         >
-          <MenuItem value={'Diploma'}>High School</MenuItem>
-          <MenuItem value={'Associate'}>College</MenuItem>
-          <MenuItem value={'Bachelors'}>University</MenuItem>
+          <MenuItem value={'HighSchool'}>High School</MenuItem>
+          <MenuItem value={'College'}>College</MenuItem>
+          <MenuItem value={'University'}>University</MenuItem>
         </Select>
         </FormControl>
-        <br />
+        <br/>
         <TextField
           id="standard-basic"
           onChange={(e) =>
@@ -50,7 +64,7 @@ export default function Education() {
               Education: { ...user.Education, University: e.target.value },
             })
           }
-          label="University/College"
+          label="Institution Name"
           variant="standard"
         />
         <FormControl variant="standard" sx={{ mr: 10, ml: 5, mb: 5.5, mt: 0.5, minWidth: "30ch" }}>
@@ -68,7 +82,6 @@ export default function Education() {
           <MenuItem value={'Bachelors'}>Bachelor's Degree</MenuItem>
           <MenuItem value={'Masters'}>Master's Degree</MenuItem>
           <MenuItem value={'Doctrate'}>Doctoral degree</MenuItem>
-          <MenuItem value={'Professor'} >Professional degree</MenuItem>
         </Select>
         </FormControl>
         <br />

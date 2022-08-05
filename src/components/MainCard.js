@@ -3,11 +3,12 @@ import FormContainer from "./FormContainer";
 import Sidenav from "./Sidenav";
 import Title from "./Title";
 import Footer from "./Footer";
+import educationTypes from "./Forms/reference/educationTypeRef";
 
 export const CV = createContext();
 
 function MainCard() {
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState(2);
   const [user, setUser] = React.useState({
     basicInfo: {
       name: "Daniel",
@@ -15,31 +16,76 @@ function MainCard() {
       email: "natghi2010@gmail.com",
       phone_number: "(647) 555-5555",
     },
-    Education: [
+
+    educationExperience:[
       {
-        University: "AA University",
-        Degree_Type: "Associate's",
-        Major: "Computer Science",
-        Graduating_Year : "2022",
+        institution_type: 'High School',
+        instituion_name : '',
+        graduation_year : '',
+        degree_type : '',
       },
+      
     ],
+  
     workExperinces: [
       {
-        company_name: "TestPick",
-        title: "Developer",
+        company_name: "",
+        title: "",
         description: "",
-        start_date: "12/05/2021",
-        end_date: "14/05/2021",
-      },
-      {
-        company_name: "Sunchips",
-        title: "Developer",
-        description: "",
-        start_date: "12/05/2021",
-        end_date: "14/05/2021",
+        start_date: "",
+        end_date: "",
       },
     ],
   });
+
+  const addEducation = () => {
+    setUser({
+      ...user,
+      educationExperience: [
+        ...user.educationExperience,
+        {
+          institution_type: "",
+          instituion_name: "",
+          graduation_year: "",
+          degree_type: "",
+        },
+      ],
+    })
+  }
+
+
+
+  const removeEducation = (index) => {
+    setUser({
+      ...user,
+      educationExperience: user.educationExperience.filter((_, i) => i !== index),
+    });
+
+  }
+
+  const addWorkExperience = () => {
+    setUser({
+      ...user,
+      workExperinces: [
+        ...user.workExperinces,
+        {
+          company_name: "",
+          title: "",
+          description: "",
+          start_date: "",
+          end_date: "",
+        },
+      ],
+    });
+  }
+
+    const removeWorkExperience = (index) => {
+      setUser({
+        ...user,
+        workExperinces: user.workExperinces.filter((_, i) => i !== index),
+      });
+    }
+    
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -75,8 +121,9 @@ function MainCard() {
   return (
     <div className="card">
       <Title
+     
         title="CVMaker"
-        subtitle="Follow the simple 4 Steps to complete your mapping"
+        subtitle="Follow the simple 4 Steps to complete your CV"
       />
 
       <CV.Provider
@@ -88,12 +135,17 @@ function MainCard() {
           steps,
           user,
           setUser,
+          educationTypes,
+          addEducation,
+          removeEducation,
+          addWorkExperience,
+          removeWorkExperience,
         }}
       >
         <div className="cardBody">
           <Sidenav />
           <FormContainer />
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </CV.Provider>
     </div>
