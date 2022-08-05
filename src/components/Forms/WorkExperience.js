@@ -2,7 +2,7 @@ import * as React from "react";
 import { Box, TextField } from "@mui/material";
 import { useContext } from "react";
 import { CV } from "../MainCard";
-import { width } from "@mui/system";
+
 
 export default function WorkExperinces() {
   const CVContext = useContext(CV);
@@ -45,21 +45,21 @@ export default function WorkExperinces() {
               ...CVContext.user,
               workExperinces: {
                 ...CVContext.user.workExperinces,
-                age: e.target.value,
+                title: e.target.value,
               },
             })
           }
           label="Title"
           variant="standard"
         />
-        <TextField
+        <TextField 
         id="standard-multiline-static"
           onChange={(e) =>
             setUser({
               ...CVContext.user,
               workExperinces: {
                 ...CVContext.user.workExperinces,
-                age: e.target.value,
+                description: e.target.value,
               },
             })
           }
@@ -82,7 +82,7 @@ export default function WorkExperinces() {
               ...CVContext.user,
               workExperinces: {
                 ...CVContext.user.workExperinces,
-                age: e.target.value,
+                start_date: e.target.value,
               },
             })
           }
@@ -97,7 +97,7 @@ export default function WorkExperinces() {
               ...CVContext.user,
               workExperinces: {
                 ...CVContext.user.workExperinces,
-                age: e.target.value,
+                end_date: e.target.value,
               },
             })
           }
