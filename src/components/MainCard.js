@@ -15,13 +15,33 @@ function MainCard() {
       email: "natghi2010@gmail.com",
       phone_number: "(647) 555-5555",
     },
-    Education: [
+    Education:
+    [
       {
-        University: "AA University",
-        Degree_Type: "Associate's",
-        Major: "Computer Science",
-        Graduating_Year : "2022",
+        certificate:"Diploma",
+        tag :"High School, College",
       },
+      {
+        certificate: "Associate",
+        tag: "College, University",
+      },
+      {
+        certificate: "Bachelor's Degree",
+        tag: "College, University",
+      },
+      {
+        certificate: "Master's Degree",
+        tag: "University",
+      },
+      {
+        certificate: "Doctoral degree",
+        tag: "University",
+      }
+      ,
+      {
+        certificate: "Professonal Degree",
+        tag: "University",
+      }
     ],
     workExperinces: [
       {
