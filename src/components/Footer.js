@@ -20,12 +20,14 @@ function Footer() {
                 >
                 Prev &nbsp; 
                 </Button>
+              
                 <Button
                 color="secondary"
                 onClick={CVContext.handleNext}
                 sx={{ mt: 1, mr: 1 }}
+             //   disabled={CVContext.activeStep === CVContext.steps.length - 1}
                 >
-                {CVContext.activeStep === CVContext.steps.length - 1 ? 'Finish' : 'Next'}
+                {CVContext.activeStep === CVContext.steps.length -1  ? 'Finish' : 'Next'}
                 </Button>
             </ButtonGroup>
         </Box>

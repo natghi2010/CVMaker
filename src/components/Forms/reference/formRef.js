@@ -6,6 +6,7 @@ import WorkExperinces from "../WorkExperience";
 const forms = [
     BasicInfo,
     Education,
+    WorkExperinces,
     WorkExperinces
   ]
 

@@ -8,7 +8,7 @@ import educationTypes from "./Forms/reference/educationTypeRef";
 export const CV = createContext();
 
 function MainCard() {
-  const [activeStep, setActiveStep] = React.useState(1);
+  const [activeStep, setActiveStep] = React.useState(0);
   const [user, setUser] = React.useState({
     basicInfo: {
       name: "Daniel",
@@ -20,7 +20,7 @@ function MainCard() {
     educationExperience:[
       {
         institution_type: '',
-        instituion_name : '',
+        instituion_name : 'Test',
         graduation_year : '',
         degree_type : '',
       },
@@ -36,6 +36,7 @@ function MainCard() {
         end_date: "",
       },
     ],
+    
   });
 
   const addEducation = () => {
@@ -88,6 +89,10 @@ function MainCard() {
     
 
   const handleNext = () => {
+    if(activeStep === steps.length - 1){
+      alert("Done");
+      return;
+    }
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
@@ -145,7 +150,6 @@ function MainCard() {
         <div className="cardBody">
           <Sidenav />
           <FormContainer />
-          {/* <Footer /> */}
         </div>
       </CV.Provider>
     </div>

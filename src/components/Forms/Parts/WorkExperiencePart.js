@@ -48,31 +48,48 @@ export default function WorkExperincePart({index}) {
           </Button>
         )}
       </div>
+      {CVContext.user.workExperinces[index].title.length > 0 && CVContext.user.workExperinces[index].company_name.length > 0 && 
+        <div className="workPartTitle">
+            {/* {CVContext.user.workExperinces[index].title} @ <span>{CVContext.user.workExperinces[index].company_name}</span> */}
+        </div>
+      }
+      
+      
+      
         <div>
           <TextField
             id="standard-basic"
             onChange={(e) =>
               setUser({
                 ...user,
-                workExperinces: {
-                  ...user.workExperinces,
-                  company_name: e.target.value,
-                },
+                workExperinces: [
+                  ...user.workExperinces.slice(0, index),
+                  {
+                    ...user.workExperinces[index],
+                    company_name: e.target.value,
+                  },
+                  ...user.workExperinces.slice(index + 1),
+                ],
               })
             }
           
             label="Company Name"
             variant="standard"
           />
+       
           <TextField
             id="standard-number"
             onChange={(e) =>
               setUser({
-                ...CVContext.user,
-                workExperinces: {
-                  ...CVContext.user.workExperinces,
-                  age: e.target.value,
-                },
+                ...user,
+                workExperinces: [
+                  ...user.workExperinces.slice(0, index),
+                  {
+                    ...user.workExperinces[index],
+                    title: e.target.value,
+                  },
+                  ...user.workExperinces.slice(index + 1),
+                ],
               })
             }
             label="Title"

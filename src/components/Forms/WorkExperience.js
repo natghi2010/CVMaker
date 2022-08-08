@@ -11,7 +11,7 @@ export default function WorkExperinces() {
   const user = CVContext.user;
   return (
     <div>
-    <tag>
+
         {CVContext.user.workExperinces.map((workExperince, index) => {
           return <WorkExperincePart key={index} index={index} />;
         })}
@@ -27,7 +27,6 @@ export default function WorkExperinces() {
             <AddCircleOutline />
           </Fab>
         </div>
-      </tag>
     </div>
   );
 }

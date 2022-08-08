@@ -7,6 +7,7 @@ import {
   MenuItem,
   Select,
   TextField,
+  Typography,
 } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { CV } from "../../MainCard";
@@ -57,6 +58,12 @@ export default function EducationParts({ index, name }) {
             </Button>
           )}
         </div>
+        <Typography
+          variant="h5"
+          component="h5"
+          >
+            {CVContext.user.educationExperience[index].instituion_name}
+          </Typography>
         <FormControl
           variant="standard"
           sx={{ mr: 10, ml: 5, mb: 5.5, mt: 0.5, minWidth: "30ch" }}
@@ -82,18 +89,19 @@ export default function EducationParts({ index, name }) {
                 setUser({
                   ...user,
                   educationExperience: [
-                    ...user.educationExperience,
+                    ...user.educationExperience.slice(0, index),
                     {
                       ...user.educationExperience[index],
-                      institution_type: instituionType,
                       instituion_name: e.target.value,
                     },
+                    ...user.educationExperience.slice(index + 1),
                   ],
                 })
               }
               label={instituionType + " Name"}
               variant="standard"
             />
+            {CVContext.user.educationExperience[index].instituion_name.length}
 
             <FormControl
               variant="standard"

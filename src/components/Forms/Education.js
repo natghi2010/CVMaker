@@ -15,13 +15,13 @@ export default function Education() {
     <div>
       {CVContext.user.educationExperience.map((education, index) => {
         return (
-          <tag>
+          <div>
             <EducationParts
               className="educationParts"
               key={index}
               index={index}
             />
-          </tag>
+          </div>
         );
         })}
     

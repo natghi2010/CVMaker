@@ -17,7 +17,6 @@ html{
     padding-left: 70px;
     padding-right: 70px;
     padding-top: 30px;
-    display: inline-block;
 }
 
 .title{
@@ -37,7 +36,6 @@ html{
 .formContainer{
     width: 70%;
     float: right;
-    min-height: 70vh;
 }
 
 .CVButton{
@@ -47,12 +45,10 @@ html{
 }
 
 .footer {
-    position: relative;
-    padding: 5px 0px 75px 90px;
-    bottom: 0;
-    width: 80%;
+
     /* Height of the footer*/ 
     height: 40px;
+    margin-top: 20px;
     background:#fff;
 }
 
@@ -77,4 +73,19 @@ html{
 
     border-radius: 10px;
     box-shadow: 0 0 4px rgba(0,0,0,0.8);
+}
+
+.workPartTitle{
+    font-size: 20px;
+    color: #818181;
+    margin-bottom: 20px;
+    margin-left:35px;
+    text-align: left;
+}   
+
+.workPartTitle span{
+    font-size: 20px;
+    color: #1976d2;
+    margin-bottom: 20px;
+    text-align: left;
 }
