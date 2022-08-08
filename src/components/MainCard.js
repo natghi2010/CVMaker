@@ -8,7 +8,7 @@ import educationTypes from "./Forms/reference/educationTypeRef";
 export const CV = createContext();
 
 function MainCard() {
-  const [activeStep, setActiveStep] = React.useState(2);
+  const [activeStep, setActiveStep] = React.useState(1);
   const [user, setUser] = React.useState({
     basicInfo: {
       name: "Daniel",
@@ -19,7 +19,7 @@ function MainCard() {
 
     educationExperience:[
       {
-        institution_type: 'High School',
+        institution_type: '',
         instituion_name : '',
         graduation_year : '',
         degree_type : '',

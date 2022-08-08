@@ -8,10 +8,10 @@ import {
   Select,
   TextField,
 } from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
 import { CV } from "../../MainCard";
 import { DeleteForeverOutlined, MinimizeOutlined } from "@mui/icons-material";
 export default function EducationParts({ index, name }) {
-
   const CVContext = React.useContext(CV);
   const setUser = CVContext.setUser;
   const user = CVContext.user;
@@ -39,30 +39,23 @@ export default function EducationParts({ index, name }) {
     >
       <div>
         <div align="right">
-        {CVContext.user.educationExperience.length > 1 && <Button
-                variant="contained"
-                sx={{
-                    backgroundColor: "white",
-                    color: "gray",
-                    marginRight: "10px",
-                    marginTop: "10px",
-                    marginBottom: "10px",
-                }}
-
-                flat
-
-                
-                onClick={() => {
-                    CVContext.removeEducation(index)
-                } }
-                >
-            {/* Minus Icon */}
-          <DeleteForeverOutlined/>
-            </Button>}
-           
-                
-
-
+          {CVContext.user.educationExperience.length > 1 && (
+            <Button
+              startIcon={<DeleteIcon />}
+              sx={{
+                color: "gray",
+                marginRight: "0.5px",
+                marginTop: "7px",
+                marginBottom: "10px",
+                marginLeft: "10px",
+        
+              }}
+              onClick={() => {
+                CVContext.removeEducation(index);
+              }}
+            >
+            </Button>
+          )}
         </div>
         <FormControl
           variant="standard"
