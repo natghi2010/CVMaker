@@ -1,13 +1,16 @@
-import React, { createContext } from "react";
+import React, { createContext, useRef } from "react";
 import FormContainer from "./FormContainer";
 import Sidenav from "./Sidenav";
 import Title from "./Title";
 import Footer from "./Footer";
 import educationTypes from "./Forms/reference/educationTypeRef";
+import ReactToPrint, { useReactToPrint } from 'react-to-print';
+import { Button } from "@mui/material";
 
 export const CV = createContext();
 
 function MainCard() {
+  
   const [activeStep, setActiveStep] = React.useState(3);
   const [user, setUser] = React.useState({
     basicInfo: {
@@ -54,6 +57,12 @@ function MainCard() {
       ],
     })
   }
+
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
+
 
 
 
@@ -146,11 +155,17 @@ function MainCard() {
           removeEducation,
           addWorkExperience,
           removeWorkExperience,
+          handlePrint,
         }}
       >
         <div className="cardBody">
           <Sidenav />
           <FormContainer />
+        </div>
+
+       
+        <div ref={componentRef}>
+        
         </div>
       </CV.Provider>
     </div>

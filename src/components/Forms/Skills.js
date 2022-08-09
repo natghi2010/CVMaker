@@ -32,27 +32,31 @@ export default function Skills() {
           />
         )}
       />
-       <Grid container spacing={2}>
-      {CVContext.user.skills.map((skill, index) => {
-        return (
-      
-              <Grid item xs={3} sx={
-                {
-                  paddingTop: 1,
-                  paddingBottom: 1,
-                }
-              }>
-                <img src={skill.icon} alt={skill.title} width="30" sx={
-                  {
-                    marginBottom: "-8px"
-                  }
-                }/> &nbsp;
-                {skill.title}
-              </Grid>
-  
-        );
-      })}
-         </Grid>
+      <Grid container spacing={2}>
+        {CVContext.user.skills.map((skill, index) => {
+          return (
+            <Grid
+              item
+              xs={3}
+              sx={{
+                paddingTop: 1,
+                paddingBottom: 1,
+              }}
+            >
+              <img
+                src={skill.icon}
+                alt={skill.title}
+                width="30"
+                sx={{
+                  marginBottom: "-8px",
+                }}
+              />{" "}
+              &nbsp;
+              {skill.title}
+            </Grid>
+          );
+        })}
+      </Grid>
     </Stack>
   );
 }
