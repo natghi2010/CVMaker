@@ -1,4 +1,4 @@
-const skills = [
+const skillsref = [
     "HTML",
     "CSS",
     "JavaScript",
@@ -10,6 +10,7 @@ const skills = [
     "MySQL",
     "Git",
     "Github",
+    "insert skills"
 ];
 
-export default skills;
+export default skillsref;
