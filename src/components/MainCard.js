@@ -8,7 +8,7 @@ import educationTypes from "./Forms/reference/educationTypeRef";
 export const CV = createContext();
 
 function MainCard() {
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState(3);
   const [user, setUser] = React.useState({
     basicInfo: {
       name: "Daniel",
@@ -36,10 +36,7 @@ function MainCard() {
         end_date: "",
       },
     ],
-
-    skills: {
-      skill_set: "",
-    }
+    skills:[]
     
   });
 

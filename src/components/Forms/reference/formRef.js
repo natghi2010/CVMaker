@@ -8,7 +8,7 @@ const forms = [
     BasicInfo,
     Education,
     WorkExperinces,
-    WorkExperinces
+    Skills
   ]
 
 
