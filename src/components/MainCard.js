@@ -20,7 +20,7 @@ function MainCard() {
     educationExperience:[
       {
         institution_type: '',
-        instituion_name : 'Test',
+        instituion_name : '',
         graduation_year : '',
         degree_type : '',
       },
@@ -36,6 +36,10 @@ function MainCard() {
         end_date: "",
       },
     ],
+
+    skills: {
+      skill_set: "",
+    }
     
   });
 

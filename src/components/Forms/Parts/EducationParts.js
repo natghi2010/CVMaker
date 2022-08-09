@@ -11,7 +11,6 @@ import {
 } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { CV } from "../../MainCard";
-import { DeleteForeverOutlined, MinimizeOutlined } from "@mui/icons-material";
 export default function EducationParts({ index, name }) {
   const CVContext = React.useContext(CV);
   const setUser = CVContext.setUser;
@@ -49,6 +48,7 @@ export default function EducationParts({ index, name }) {
                 marginTop: "7px",
                 marginBottom: "10px",
                 marginLeft: "10px",
+                float: "Right",
         
               }}
               onClick={() => {
@@ -81,7 +81,7 @@ export default function EducationParts({ index, name }) {
         </FormControl>
         <br />
 
-        {instituionType.length != 0 && (
+        {instituionType.length !== 0 && (
           <div>
             <TextField
               id="standard-basic"
@@ -101,8 +101,6 @@ export default function EducationParts({ index, name }) {
               label={instituionType + " Name"}
               variant="standard"
             />
-            {CVContext.user.educationExperience[index].instituion_name.length}
-
             <FormControl
               variant="standard"
               sx={{ mr: 10, ml: 5, mb: 5.5, mt: 0.5, minWidth: "30ch" }}
@@ -123,7 +121,7 @@ export default function EducationParts({ index, name }) {
               </Select>
             </FormControl>
             <br />
-            {instituionType != "High School" && (
+            {instituionType !== "High School" && (
               <TextField
                 id="standard-basic"
                 onChange={(e) =>

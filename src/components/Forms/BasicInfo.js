@@ -9,7 +9,9 @@ export default function BasicInfo() {
   
   return (
     <Box
+    className="educationParts"
       component="form"
+      elevation={2}
       sx={{
         "& .MuiTextField-root": {
           mr: 10,

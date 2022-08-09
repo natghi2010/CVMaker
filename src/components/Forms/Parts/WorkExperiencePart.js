@@ -2,15 +2,14 @@ import * as React from "react";
 import { Box, Button, TextField } from "@mui/material";
 import { useContext } from "react";
 import { CV } from "../../MainCard";
-import { DeleteForeverOutlined } from "@mui/icons-material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-export default function WorkExperincePart({index}) {
+export default function WorkExperincePart({ index }) {
   const CVContext = useContext(CV);
   const setUser = CVContext.setUser;
   const user = CVContext.user;
   return (
     <div>
-     
       <Box
         className="educationParts"
         component="form"
@@ -26,36 +25,31 @@ export default function WorkExperincePart({index}) {
         noValidate
         autoComplete="off"
       >
-
-         <div align="right">
-        {CVContext.user.workExperinces.length > 1 && (
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: "white",
-              color: "gray",
-              marginRight: "10px",
-              marginTop: "10px",
-              marginBottom: "10px",
-            }}
-            flat
-            onClick={() => {
-              CVContext.removeWorkExperience(index);
-            }}
-          >
-            {/* Minus Icon */}
-            <DeleteForeverOutlined />
-          </Button>
-        )}
-      </div>
-      {CVContext.user.workExperinces[index].title.length > 0 && CVContext.user.workExperinces[index].company_name.length > 0 && 
-        <div className="workPartTitle">
-            {/* {CVContext.user.workExperinces[index].title} @ <span>{CVContext.user.workExperinces[index].company_name}</span> */}
+        <div align="right">
+          {CVContext.user.workExperinces.length > 1 && (
+            <Button
+              startIcon={<DeleteIcon />}
+              sx={{
+                color: "gray",
+                marginRight: "0.5px",
+                marginTop: "7px",
+                marginBottom: "10px",
+                marginLeft: "10px",
+                float: "right",
+              }}
+              onClick={() => {
+                CVContext.removeWorkExperience(index);
+              }}
+            ></Button> 
+          )}
+          <br/>
         </div>
-      }
-      
-      
-      
+        {CVContext.user.workExperinces[index].title.length > 0 &&
+          CVContext.user.workExperinces[index].company_name.length > 0 && (
+            <div className="workPartTitle">
+               {CVContext.user.workExperinces[index].title} @ <span>{CVContext.user.workExperinces[index].company_name}</span> 
+            </div>
+          )}
         <div>
           <TextField
             id="standard-basic"
@@ -72,11 +66,10 @@ export default function WorkExperincePart({index}) {
                 ],
               })
             }
-          
             label="Company Name"
             variant="standard"
           />
-       
+
           <TextField
             id="standard-number"
             onChange={(e) =>
@@ -107,9 +100,9 @@ export default function WorkExperincePart({index}) {
                 },
               })
             }
-            label="Description"
-            fullWidth
+            label= "Description"
             multiline
+            fullwidth
             maxRows={5}
           />
         </div>

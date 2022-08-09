@@ -1,6 +1,6 @@
 import * as React from "react";
 import {
-  Fab,
+  Button,
 } from "@mui/material";
 import { CV } from "../MainCard";
 import EducationParts from "./Parts/EducationParts";
@@ -27,7 +27,7 @@ export default function Education() {
     
 
       <div align="right">
-        <Fab
+        <Button
           color="primary"
           aria-label="add"
           className="addEducation"
@@ -36,7 +36,7 @@ export default function Education() {
           }}
         >
           <AddCircleOutline />
-        </Fab>
+        </Button>
       </div>
     </div>
   );
