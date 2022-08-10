@@ -2,6 +2,7 @@ import React, { createContext, useRef } from "react";
 import FormContainer from "./FormContainer";
 import Sidenav from "./Sidenav";
 import Title from "./Title";
+import CVPDF from "./CVPDF";
 import Footer from "./Footer";
 import educationTypes from "./Forms/reference/educationTypeRef";
 import ReactToPrint, { useReactToPrint } from 'react-to-print';
@@ -158,15 +159,16 @@ function MainCard() {
           handlePrint,
         }}
       >
-        <div className="cardBody">
+        <div className="cardBody" onClick={()=>{handlePrint()}}>
           <Sidenav />
           <FormContainer />
         </div>
 
        
         <div ref={componentRef}>
-        
+          {<CVPDF />}
         </div>
+
       </CV.Provider>
     </div>
   );
