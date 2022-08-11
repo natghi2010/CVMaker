@@ -12,16 +12,16 @@ export default function CVPDF() {
       <div className="CVPDF-header">
         <h1>{CVContext.user.basicInfo.name}</h1>
         <span className="role-container">
-          Her Job
+         Her Job
         </span>
         <span className="address-container">
-          address
+        {CVContext.user.basicInfo.address}
         </span>
       </div>
 
       <div className="contact-container">
-        <div className="phone-container leftFloat">09472364827</div>
-        <div className="email-container rightFloat">tse@test.com</div>
+        <div className="phone-container leftFloat">{CVContext.user.basicInfo.phone_number}</div>
+        <div className="email-container rightFloat">{CVContext.user.basicInfo.email}</div>
       </div>
 
       <hr/> 
@@ -30,25 +30,40 @@ export default function CVPDF() {
         mt:1
       }} spacing={2}>
         <Grid item xs={6}>
-        Date of Birth .....................................04/04/2022
+        Date of Birth .....................................{CVContext.user.basicInfo.date_of_birth}
         </Grid>
 
         <Grid item xs={6}>
-        Place of Birth ..............................Addis Ababa
+        Place Of Birth ..............................{CVContext.user.basicInfo.place_of_birth}
         </Grid>
 
         <Grid item xs={6}>
-        Date of Birth .....................................04/04/2022
+        Nationality .........................................{CVContext.user.basicInfo.nationality}
         </Grid>
-
         <Grid item xs={6}>
-        Place of Birth ..............................Addis Ababa
+        Gender.....................................{CVContext.user.basicInfo.gender}
         </Grid> 
       </Grid>
 
       <div className="section-container">
-          <h3 className="section-title">Profile</h3>
+        <h3 className="section-title">PROFILE</h3>
       </div>
+      <div className="section-container">
+        <h3 className="section-title">SKILLS</h3>
+      </div>
+
+      <Grid container sx={{
+        mt:1
+      }} spacing={2}>
+        
+          {CVContext.user.skills.map((skill,index) =>{
+          return(
+            <Grid item xs={6}>
+            {CVContext.user.skills[index]}
+            </Grid>
+          );
+        })}
+      </Grid>
     
 
 

@@ -12,13 +12,18 @@ export const CV = createContext();
 
 function MainCard() {
   
-  const [activeStep, setActiveStep] = React.useState(3);
+  const [activeStep, setActiveStep] = React.useState(0);
   const [user, setUser] = React.useState({
     basicInfo: {
       name: "Daniel",
+      date_of_birth:"",
+      place_of_birth:"",
+      nationality:"",
+      gender:"",
       address: "18",
       email: "natghi2010@gmail.com",
       phone_number: "(647) 555-5555",
+
     },
 
     educationExperience:[
@@ -159,7 +164,8 @@ function MainCard() {
           handlePrint,
         }}
       >
-        <div className="cardBody" onClick={()=>{handlePrint()}}>
+        <div className="cardBody">
+        <Button variant= "contained" onClick={()=>{handlePrint()}}> Print</Button>
           <Sidenav />
           <FormContainer />
         </div>
