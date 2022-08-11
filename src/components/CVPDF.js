@@ -35,50 +35,19 @@ export default function CVPDF() {
         spacing={2}
       >
         <Grid item xs={6}>
-
         Date of Birth .....................................{CVContext.user.basicInfo.date_of_birth}
         </Grid>
-
         <Grid item xs={6}>
         Place Of Birth ..............................{CVContext.user.basicInfo.place_of_birth}
         </Grid>
-
         <Grid item xs={6}>
         Nationality .........................................{CVContext.user.basicInfo.nationality}
-        </Grid>
-
-        <Grid item xs={6}>
-          Place of Birth ..............................Addis Ababa
         </Grid>
         <Grid item xs={6}>
         Gender.....................................{CVContext.user.basicInfo.gender}
         </Grid> 
       </Grid>
 
-      <div className="section-container">
-        <h3 className="section-title">PROFILE</h3>
-      </div>
-      <div className="section-container">
-        <h3 className="section-title">SKILLS</h3>
-      </div>
-
-      <Grid container sx={{
-        mt:1
-      }} spacing={2}>
-        
-          {CVContext.user.skills.map((skill,index) =>{
-          return(
-            <Grid item xs={6}>
-            {CVContext.user.skills[index]}
-            </Grid>
-          );
-        })}
-      </Grid>
-    
-=======
-          Gender ............................................ &nbsp;Male
-        </Grid>
-      </Grid>
 
       <div className="section-container">
         <h3 className="section-title">Profile</h3>
@@ -87,7 +56,6 @@ export default function CVPDF() {
         <div className="section-container">
           <h3 className="section-title">Education</h3>
         </div>
->>>>>>> a9ab5b4626700fd01315f18c0a91ff296f8a4ffb
 
         <div className="expereince-container">
           <span>
