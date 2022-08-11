@@ -36,6 +36,7 @@ export default function Skills() {
         {CVContext.user.skills.map((skill, index) => {
           return (
             <Grid
+              key={index}
               item
               xs={3}
               sx={{

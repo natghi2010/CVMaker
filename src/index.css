@@ -83,3 +83,85 @@ html{
     margin-bottom: 20px;
     text-align: left;
 }
+
+
+
+@media print {
+    .CVPDF {
+        display: block;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 30px;
+    }
+    .CVPDF-header{
+        letter-spacing: 4px;
+        text-align: center;
+    }
+    h1{
+        padding:0px !important;
+    }
+    .floatLeft{
+        float: left !important;
+    }
+    .floatRight{
+        float:right !important;
+    }
+    .role-container{
+        display: block;
+        margin-top: -10px !important;
+        font-weight: bolder;
+    }
+
+    .address-container{
+        display: block;
+        margin-top: 10px !important;
+        font-style: italic;
+    }
+
+    .contact-container{
+        margin-top: 10px;
+        padding-bottom: 35px;
+        border-bottom: black thick solid;
+    }
+
+    .phone-container{
+        display: inline-block;
+        float: left;
+    }
+    .section-container{
+        margin-top: 20px;
+        background-color: #f2f2f2;
+
+    }
+    .section-title{
+        text-decoration: underline;
+        text-align: center !important;
+    }
+
+    .email-container{
+        display: inline-block;
+        float:right
+    }
+
+
+    
+
+   
+}
+@media screen {
+    .CVPDF {
+        display: block;
+    }    
+    h1 span.subTitle{
+        display: block;
+        font-size: 0.7em !important;
+        font-weight: lighter;
+    }
+    .section-title{
+        text-align: center !important;
+    }
+
+}
+
+
+
