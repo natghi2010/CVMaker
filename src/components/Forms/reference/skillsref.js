@@ -5,6 +5,11 @@ const skillsref = [
     }
     ,
     {
+        title: 'React',
+        icon: 'https://icon-library.com/images/react-icon/react-icon-29.jpg'
+    }
+    ,
+    {
         title: 'HTML',
         icon: 'https://img.icons8.com/color/48/000000/html-5.png'
     },
