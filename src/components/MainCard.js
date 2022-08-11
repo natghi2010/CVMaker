@@ -164,8 +164,7 @@ function MainCard() {
           handlePrint,
         }}
       >
-        <div className="cardBody">
-        <Button variant= "contained" onClick={()=>{handlePrint()}}> Print</Button>
+        <div className="cardBody" onClick={()=>{handlePrint()}}>
           <Sidenav />
           <FormContainer />
         </div>
