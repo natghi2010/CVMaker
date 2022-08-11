@@ -34,6 +34,7 @@ export default function BasicInfo() {
             value={user.basicInfo.name}
             onChange={(e) => {
               setUser({ ...user, basicInfo: { ...user.basicInfo, name: e.target.value } });
+               window.localStorage.setItem("name", e.target.value);
             } }
           />
         </Grid>
