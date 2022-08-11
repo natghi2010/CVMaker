@@ -1,6 +1,15 @@
 html{
     height: 100%;
     background-color: #ebeff2;
+   
+}
+
+
+
+
+hr{
+    width:30%;
+    border:1px #eee solid;
 }
 
 /* Card in the center of the screen */
@@ -87,6 +96,9 @@ html{
 
 
 @media print {
+    *{
+        font-family: 'Playfair Display', serif !important;
+    }
     .CVPDF {
         display: block;
         padding-left: 50px;
@@ -129,7 +141,8 @@ html{
         float: left;
     }
     .section-container{
-        margin-top: 20px;
+        margin-top: 40px;
+        display: block;
         background-color: #f2f2f2;
 
     }
@@ -137,10 +150,49 @@ html{
         text-decoration: underline;
         text-align: center !important;
     }
+    .type-of-degree{
+        display: block !important;
+        margin-top: 10px !important;
+    }
+
+    
 
     .email-container{
         display: inline-block;
-        float:right
+        float:right;
+    }
+
+    .job-title{
+        display: inline-block;
+        font-weight: bolder;
+        font-size: 20px;
+        margin-bottom: 10px;
+        float:left;
+    }
+
+    .job-duration{
+        display: inline-block;
+        float:right;
+        margin-bottom: 10px;
+    }
+    .job-description{
+        display: inline-block;
+        margin-top: -10px;
+    }
+
+
+    .education-title{
+        display: inline-block;
+        font-weight: bolder;
+        font-size: 20px;
+        margin-bottom: 10px;
+        float:left;
+    }
+
+    .graduated-year{
+        display: inline-block;
+        float:right;
+        margin-bottom: 10px;
     }
 
 
