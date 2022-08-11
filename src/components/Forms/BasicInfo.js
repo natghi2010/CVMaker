@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, FormControl, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
+import { Box, FormControl, Grid, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
 import { CV } from "../MainCard";
 
 export default function BasicInfo() {
@@ -27,7 +27,6 @@ export default function BasicInfo() {
       <Grid container sx={{
         mt:1
       }} spacing={2}>
-        <div>
           <Grid item xs={6}> 
             <TextField
               id="standard-basic"
@@ -147,8 +146,8 @@ export default function BasicInfo() {
               variant="standard"
             />
           </Grid>
-        </div>
-      </Grid>
+    </Grid>
+    </Grid>
     </Box>
   );
 }
