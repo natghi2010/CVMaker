@@ -38,6 +38,26 @@ export default function BasicInfo() {
             } }
           />
         </Grid>
+
+
+   
+            <Grid item xs={6}>
+          <TextField
+            id="date"
+            variant="standard"
+            label="Date of Birth"
+            type="date"
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+          </Grid>
+
+            
+
+
+
+
         <Grid item xs={6}>
           <TextField
             id="address"
