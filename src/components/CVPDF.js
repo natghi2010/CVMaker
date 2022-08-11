@@ -10,13 +10,19 @@ export default function CVPDF() {
     <div className="CVPDF">
       <div className="CVPDF-header">
         <h1>{CVContext.user.basicInfo.name}</h1>
+        <span className="role-container">
+         Her Job
+        </span>
+        <span className="address-container">
+        {CVContext.user.basicInfo.address}
+        </span>
         <span className="role-container">Her Job</span>
         <span className="address-container">address</span>
       </div>
 
       <div className="contact-container">
-        <div className="phone-container leftFloat">09472364827</div>
-        <div className="email-container rightFloat">tse@test.com</div>
+        <div className="phone-container leftFloat">{CVContext.user.basicInfo.phone_number}</div>
+        <div className="email-container rightFloat">{CVContext.user.basicInfo.email}</div>
       </div>
 
       <hr />
@@ -29,21 +35,19 @@ export default function CVPDF() {
         spacing={2}
       >
         <Grid item xs={6}>
-          Date of Birth .....................................04/04/2022
+        Date of Birth .....................................{CVContext.user.basicInfo.date_of_birth}
         </Grid>
-
         <Grid item xs={6}>
-          Place of Birth ..............................Addis Ababa
+        Place Of Birth ..............................{CVContext.user.basicInfo.place_of_birth}
         </Grid>
-
         <Grid item xs={6}>
-        Nationality .....................................Ethiopia
+        Nationality .........................................{CVContext.user.basicInfo.nationality}
         </Grid>
-
         <Grid item xs={6}>
-          Gender ............................................ &nbsp;Male
-        </Grid>
+        Gender.....................................{CVContext.user.basicInfo.gender}
+        </Grid> 
       </Grid>
+
 
       <div className="section-container">
         <h3 className="section-title">Profile</h3>
