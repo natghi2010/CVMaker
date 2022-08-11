@@ -8,15 +8,10 @@ export default function CVPDF() {
   //CV template
   return (
     <div className="CVPDF">
- 
       <div className="CVPDF-header">
         <h1>{CVContext.user.basicInfo.name}</h1>
-        <span className="role-container">
-          Her Job
-        </span>
-        <span className="address-container">
-          address
-        </span>
+        <span className="role-container">Her Job</span>
+        <span className="address-container">address</span>
       </div>
 
       <div className="contact-container">
@@ -24,34 +19,50 @@ export default function CVPDF() {
         <div className="email-container rightFloat">tse@test.com</div>
       </div>
 
-      <hr/> 
+      <hr />
 
-      <Grid container sx={{
-        mt:1
-      }} spacing={2}>
+      <Grid
+        container
+        sx={{
+          mt: 1,
+        }}
+        spacing={2}
+      >
         <Grid item xs={6}>
-        Date of Birth .....................................04/04/2022
+          Date of Birth .....................................04/04/2022
         </Grid>
 
         <Grid item xs={6}>
-        Place of Birth ..............................Addis Ababa
+          Place of Birth ..............................Addis Ababa
         </Grid>
 
         <Grid item xs={6}>
-        Date of Birth .....................................04/04/2022
+          Date of Birth .....................................04/04/2022
         </Grid>
 
         <Grid item xs={6}>
-        Place of Birth ..............................Addis Ababa
-        </Grid> 
+          Place of Birth ..............................Addis Ababa
+        </Grid>
       </Grid>
 
       <div className="section-container">
-          <h3 className="section-title">Profile</h3>
+        <h3 className="section-title">Profile</h3>
       </div>
-    
 
-
+      <div className="contact-container"></div>
+      <div>
+        <div className="section-container">
+          <h3 className="section-title">Experience</h3>
+        </div>
+          <p>
+            testing pdf . testing pdf. testing pdf. testing pdf . testing pdf .
+            testing pdf. testing pdf. testing pdf . testing pdf. testing pdf.
+            testing pdf . testing pdf. testing pdf. testing pdf . testing pdf.
+            testing pdf. testing pdf . testing pdf. testing pdf. testing pdf .
+            testing pdf. testing pdf. testing pdf . testing pdf. testing pdf.
+            testing pdf . testing pdf. testing pdf.
+          </p>
+      </div>
     </div>
   );
 }
