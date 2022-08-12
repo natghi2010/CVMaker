@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Grid, Stack, TextField } from "@mui/material";
+import { Box, FormControl, Grid, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
 import { CV } from "../MainCard";
 
 export default function BasicInfo() {
@@ -38,44 +38,89 @@ export default function BasicInfo() {
             } }
           />
         </Grid>
-
-
-   
-            <Grid item xs={6}>
+        <Grid item xs={6}>
           <TextField
-            id="date"
+            id="birthDate"
             variant="standard"
             label="Date of Birth"
             type="date"
+            onChange={(e) => {
+              setUser({ ...user, basicInfo: { ...user.basicInfo, date_of_birth: e.target.value } });
+            } }
             InputLabelProps={{
               shrink: true,
             }}
           />
-          </Grid>
-
-            
-
-
-
-
+        </Grid>
+        <Grid item xs={6}>
+          <FormControl
+          variant="standard"
+          sx={{ mr: 10, ml: 5, mb: 5.5, mt: 0.5, minWidth: "30ch" }}
+          >
+          <InputLabel id="gender">Gender</InputLabel>
+          <Select
+            id="gen"
+            onChange={(e) =>
+              setUser({
+                ...CVContext.user,
+                basicInfo: { ...CVContext.user.basicInfo, gender: e.target.value },
+              })
+            }
+          >
+            <MenuItem value={"Female"}>Female</MenuItem>
+            <MenuItem value={"Male"}>Male</MenuItem>
+            <MenuItem value={"Prefer Not To Say"}>Prefer Not To Say</MenuItem>
+          </Select>
+          </FormControl>
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            id="birthPlace"
+            label="Place Of Birth"
+            variant="standard"
+            onChange={(e) => {
+              setUser({ ...user, basicInfo: { ...user.basicInfo, place_of_birth: e.target.value } });
+            } }
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+          id="standard-basic"
+          onChange={(e) =>
+            setUser({
+              ...CVContext.user,
+              basicInfo: { ...CVContext.user.basicInfo, nationality: e.target.value },
+            })
+          }
+          label="Nationality"
+          variant="standard"
+          />
+        </Grid>
         <Grid item xs={6}>
           <TextField
             id="address"
             label="Address"
             variant="standard"
-            value={user.basicInfo.address}
             onChange={(e) => {
               setUser({ ...user, basicInfo: { ...user.basicInfo, address: e.target.value } });
             } }
           />
         </Grid>
-
+        <Grid item xs={6}>
+          <TextField
+            id="number"
+            label="Phone Number"
+            variant="standard"
+            onChange={(e) => {
+              setUser({ ...user, basicInfo: { ...user.basicInfo, phone_number: e.target.value } });
+            } }
+          />
+          </Grid>
         <Grid item xs={6}>
           <TextField
             id="email"
             label="Email"
             variant="standard"
-            value={user.basicInfo.email}
             onChange={(e) => {
               setUser({ ...user, basicInfo: { ...user.basicInfo, email: e.target.value } });
             } }

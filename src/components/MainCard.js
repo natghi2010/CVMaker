@@ -16,7 +16,11 @@ function MainCard() {
   const [user, setUser] = React.useState({
     basicInfo: {
       name: window.localStorage.getItem("name") || "",
-      address: "18",
+      date_of_birth: "",
+      place_of_birth: "",
+      gender:"",
+      nationality: "",
+      address: "",
       email: "natghi2010@gmail.com",
       phone_number: "(647) 555-5555",
     },

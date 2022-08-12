@@ -5,10 +5,10 @@ import Stack from "@mui/material/Stack";
 import skillsref from "./reference/skillsref";
 import { CV } from "..//MainCard";
 import { useContext } from "react";
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 
 export default function Skills() {
-  const CVContext = useContext(CV);
+  const CVContext = React.useContext(CV);
 
   return (
     <Stack spacing={3} sx={{ width: 700 }}>
@@ -58,6 +58,9 @@ export default function Skills() {
           );
         })}
       </Grid>
+      <Button variant= "contained" onClick={()=>{CVContext.handlePrint()}}> Print</Button>
     </Stack>
   );
 }
+
+
