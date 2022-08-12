@@ -7,11 +7,12 @@ import { AddCircleOutline } from "@mui/icons-material";
 
 export default function WorkExperinces() {
   const CVContext = useContext(CV);
+  
   return (
     <div>
 
         {CVContext.user.workExperinces.map((workExperince, index) => {
-          return <WorkExperincePart key={index} index={index} />;
+           return <WorkExperincePart key={index} index={index} />;
         })}
         <div align="right">
           <Button
