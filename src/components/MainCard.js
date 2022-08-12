@@ -13,22 +13,20 @@ export const CV = createContext();
 function MainCard() {
   
   const [activeStep, setActiveStep] = React.useState(0);
-  var savedUser = JSON.parse(window.localStorage.getItem("user")).basicInfo;
 
-  console.log(savedUser);
-  
-  const [user, setUser] = React.useState({
+ 
+  var userModel = window.localStorage.getItem("user")!= null ? JSON.parse(window.localStorage.getItem("user")) : {
     basicInfo: {
-      name: savedUser.name || "",
+      name: "",
       date_of_birth: "",
       place_of_birth: "",
       gender:"",
       nationality: "",
       address: "",
-      email: "natghi2010@gmail.com",
-      phone_number: "(647) 555-5555",
+      role:"",
+      email: "",
+      phone_number: "",
     },
-
     educationExperience:[
       {
         institution_type: '',
@@ -50,7 +48,12 @@ function MainCard() {
     ],
     skills:[]
     
-  });
+  };
+
+
+
+ 
+  const [user, setUser] = React.useState(userModel);
 
   const addEducation = () => {
     setUser({
@@ -73,6 +76,7 @@ function MainCard() {
   });
 
    useEffect(() => {
+    window.localStorage.clear();
     window.localStorage.setItem("user", JSON.stringify(user));
   },[user]);
 

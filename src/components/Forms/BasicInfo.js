@@ -56,6 +56,23 @@ export default function BasicInfo() {
             }}
           />
         </Grid>
+
+        <Grid item xs={6}>
+          <TextField
+            id="role"
+            variant="standard"
+            label="Role"
+            onChange={(e) => {
+              setUser({
+                ...user,
+                basicInfo: { ...user.basicInfo, role: e.target.value },
+              });
+            }}
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+        </Grid>
         <Grid item xs={6}>
           <TextField
             id="birthDate"
@@ -114,35 +131,7 @@ export default function BasicInfo() {
           />
         </Grid>
         <Grid item xs={6}>
-        <Autocomplete
-      id="country-select-demo"
-      sx={{ width: 300 }}
-      options={listOfContries}
-      autoHighlight
-      getOptionLabel={(option) => option.label}
-      renderOption={(props, option) => (
-        <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
-          <img
-            loading="lazy"
-            width="20"
-            src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
-            srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
-            alt=""
-          />
-          {option.label} ({option.code}) +{option.phone}
-        </Box>
-      )}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          label="Choose a country"
-          inputProps={{
-            ...params.inputProps,
-            autoComplete: 'new-password', // disable autocomplete and autofill
-          }}
-        />
-      )}
-    />
+        
         </Grid>
         <Grid item xs={6}>
           <TextField

@@ -11,7 +11,7 @@ export default function CVPDF() {
       <div className="CVPDF-header">
         <h1>{CVContext.user.basicInfo.name}</h1>
         <span className="role-container">
-         Her Job
+        {CVContext.user.basicInfo.role}
         </span>
         <span className="address-container">
         {CVContext.user.basicInfo.address}
