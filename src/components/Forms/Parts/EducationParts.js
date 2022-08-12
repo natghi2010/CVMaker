@@ -17,7 +17,7 @@ export default function EducationParts({ index, name }) {
   const user = CVContext.user;
 
   const [instituionType, setInstituionType] = React.useState(
-    CVContext.user.educationExperience[index].institution_type
+    CVContext.user.educationExperience[index].institution_type || ""
   );
 
   return (
@@ -58,12 +58,7 @@ export default function EducationParts({ index, name }) {
             </Button>
           )}
         </div>
-        <Typography
-          variant="h5"
-          component="h5"
-          >
-            {CVContext.user.educationExperience[index].instituion_name}
-          </Typography>
+      
         <FormControl
           variant="standard"
           sx={{ mr: 10, ml: 5, mb: 5.5, mt: 0.5, minWidth: "30ch" }}

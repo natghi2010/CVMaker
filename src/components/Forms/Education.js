@@ -1,12 +1,8 @@
 import * as React from "react";
-import {
-  Button,
-} from "@mui/material";
+import { Button } from "@mui/material";
 import { CV } from "../MainCard";
 import EducationParts from "./Parts/EducationParts";
-import {
-  AddCircleOutline,
-} from "@mui/icons-material";
+import { AddCircleOutline } from "@mui/icons-material";
 
 export default function Education() {
   const CVContext = React.useContext(CV);
@@ -23,8 +19,7 @@ export default function Education() {
             />
           </div>
         );
-        })}
-    
+      })}
 
       <div align="right">
         <Button

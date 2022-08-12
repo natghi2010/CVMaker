@@ -17,22 +17,22 @@ function MainCard() {
  
   var userModel = window.localStorage.getItem("user")!= null ? JSON.parse(window.localStorage.getItem("user")) : {
     basicInfo: {
-      name: "",
-      date_of_birth: "",
-      place_of_birth: "",
-      gender:"",
-      nationality: "",
-      address: "",
-      role:"",
-      email: "",
-      phone_number: "",
+      name: "John Doe",
+      date_of_birth: "22/05/1995",
+      place_of_birth: "Addis Ababa",
+      gender:"Male",
+      nationality: "Ethiopian",
+      address: "Bole,Addis Ababa",
+      role:"Engineer",
+      email: "engineer@gmail.com",
+      phone_number: "+251947001077",
     },
     educationExperience:[
       {
-        institution_type: '',
-        instituion_name : '',
-        graduation_year : '',
-        degree_type : '',
+        institution_type: 'High School',
+        instituion_name : 'Lancaster University',
+        graduation_year : '2000',
+        degree_type : 'Diploma',
       },
       
     ],

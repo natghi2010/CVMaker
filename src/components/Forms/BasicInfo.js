@@ -57,6 +57,7 @@ export default function BasicInfo() {
           <TextField
             id="role"
             variant="standard"
+            value={user.basicInfo.role}
             label="Role"
             onChange={(e) => {
               setUser({
@@ -74,6 +75,7 @@ export default function BasicInfo() {
             id="birthDate"
             variant="standard"
             label="Date of Birth"
+            value={user.basicInfo.birthDate}
             type="date"
             onChange={(e) => {
               setUser({
@@ -104,7 +106,7 @@ export default function BasicInfo() {
                 })
               }
             >
-              <MenuItem value={"Female"}>Female</MenuItem>
+              <MenuItem  value={"Female"}>Female</MenuItem>
               <MenuItem value={"Male"}>Male</MenuItem>
               <MenuItem value={"Prefer Not To Say"}>Prefer Not To Say</MenuItem>
             </Select>
@@ -149,6 +151,7 @@ export default function BasicInfo() {
             id="birthPlace"
             label="Place Of Birth"
             variant="standard"
+            value={user.basicInfo.place_of_birth}
             onChange={(e) => {
               setUser({
                 ...user,
@@ -167,6 +170,7 @@ export default function BasicInfo() {
           <TextField
             id="address"
             label="Address"
+            value={user.basicInfo.address}
             variant="standard"
             onChange={(e) => {
               setUser({
@@ -180,6 +184,7 @@ export default function BasicInfo() {
           <TextField
             id="number"
             label="Phone Number"
+            value={user.basicInfo.phone_number}
             variant="standard"
             onChange={(e) => {
               setUser({
@@ -193,6 +198,7 @@ export default function BasicInfo() {
           <TextField
             id="email"
             label="Email"
+            value={user.basicInfo.email}
             variant="standard"
             onChange={(e) => {
               setUser({
