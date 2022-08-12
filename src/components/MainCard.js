@@ -101,7 +101,7 @@ function MainCard() {
 
   const handleNext = () => {
     if(activeStep === steps.length - 1){
-      alert("Done");
+      handlePrint();
       return;
     }
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
