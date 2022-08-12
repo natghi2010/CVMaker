@@ -12,7 +12,7 @@ export const CV = createContext();
 
 function MainCard() {
   
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState(2);
 
  
   var userModel = window.localStorage.getItem("user")!= null ? JSON.parse(window.localStorage.getItem("user")) : {
@@ -79,8 +79,6 @@ function MainCard() {
     window.localStorage.clear();
     window.localStorage.setItem("user", JSON.stringify(user));
   },[user]);
-
-
 
 
 

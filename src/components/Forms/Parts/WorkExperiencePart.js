@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, Grid, TextField } from "@mui/material";
 import { useContext } from "react";
 import { CV } from "../../MainCard";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -8,6 +8,7 @@ export default function WorkExperincePart({ index }) {
   const CVContext = useContext(CV);
   const setUser = CVContext.setUser;
   const user = CVContext.user;
+  window.localStorage.clear();
   return (
     <div>
       <Box
@@ -40,82 +41,101 @@ export default function WorkExperincePart({ index }) {
               onClick={() => {
                 CVContext.removeWorkExperience(index);
               }}
-            ></Button> 
+            ></Button>
           )}
-          <br/>
+          <br />
         </div>
         {CVContext.user.workExperinces[index].title.length > 0 &&
           CVContext.user.workExperinces[index].company_name.length > 0 && (
             <div className="workPartTitle">
-               {CVContext.user.workExperinces[index].title} @ <span>{CVContext.user.workExperinces[index].company_name}</span> 
+              {CVContext.user.workExperinces[index].title} @{" "}
+              <span>{CVContext.user.workExperinces[index].company_name}</span>
             </div>
           )}
         <div>
-          <TextField
-            id="standard-basic"
-            onChange={(e) =>
-              setUser({
-                ...user,
-                workExperinces: [
-                  ...user.workExperinces.slice(0, index),
-                  {
-                    ...user.workExperinces[index],
-                    company_name: e.target.value,
-                  },
-                  ...user.workExperinces.slice(index + 1),
-                ],
-              })
-            }
-            label="Company Name"
-            variant="standard"
-          />
+          <Grid container spacing={1}>
+            <Grid item xs={6} sm={6}>
+              <TextField
+                id="standard-basic"
+                onChange={(e) =>
+                  setUser({
+                    ...user,
+                    workExperinces: [
+                      ...user.workExperinces.slice(0, index),
+                      {
+                        ...user.workExperinces[index],
+                        company_name: e.target.value,
+                      },
+                      ...user.workExperinces.slice(index + 1),
+                    ],
+                  })
+                }
+                label="Company Name"
+                variant="standard"
+                value={user.workExperinces[index].company_name}
+              />
+            </Grid>
 
-          <TextField
-            id="standard-number"
-            onChange={(e) =>
-              setUser({
-                ...user,
-                workExperinces: [
-                  ...user.workExperinces.slice(0, index),
-                  {
-                    ...user.workExperinces[index],
-                    title: e.target.value,
-                  },
-                  ...user.workExperinces.slice(index + 1),
-                ],
-              })
-            }
-            label="Title"
-            variant="standard"
-          />
+            <Grid item xs={6} sm={6}>
+              <TextField
+                id="standard-number"
+                onChange={(e) =>
+                  setUser({
+                    ...user,
+                    workExperinces: [
+                      ...user.workExperinces.slice(0, index),
+                      {
+                        ...user.workExperinces[index],
+                        title: e.target.value,
+                      },
+                      ...user.workExperinces.slice(index + 1),
+                    ],
+                  })
+                }
+                value={user.workExperinces[index].title}
+                label="Title"
+                variant="standard"
+              />
+            </Grid>
 
-          <TextField
-            id="standard-multiline-static"
-            onChange={(e) =>
-              setUser({
-                ...CVContext.user,
-                workExperinces: {
-                  ...CVContext.user.workExperinces,
-                  age: e.target.value,
-                },
-              })
-            }
-            label= "Description"
-            multiline
-            fullwidth
-            maxRows={5}
-          />
+            <Grid item xs={12}>
+              <TextField
+                id="standard-multiline-static"
+                onChange={(e) =>
+                  setUser({
+                    ...user,
+                    workExperinces: [
+                      ...user.workExperinces.slice(0, index),
+                      {
+                        ...user.workExperinces[index],
+                        description: e.target.value,
+                      },
+                      ...user.workExperinces.slice(index + 1),
+                    ],
+                  })
+                }
+                label="Description"
+                multiline
+                maxRows={10}
+                style ={{width: '85%',height: '500%'}} 
+              />
+            </Grid>
+          </Grid>
         </div>
         <div>
           <TextField
             id="standard-number"
             onChange={(e) =>
               setUser({
-                ...CVContext.user,
-                workExperinces: {
-                  ...CVContext.user.workExperinces,
-                  age: e.target.value,
-                },
+                ...user,
+                workExperinces: [
+                  ...user.workExperinces.slice(0, index),
+                  {
+                    ...user.workExperinces[index],
+                    start_date: e.target.value,
+                  },
+                  ...user.workExperinces.slice(index + 1),
+                ],
               })
             }
             label="Start Date"
@@ -126,11 +146,15 @@ export default function WorkExperincePart({ index }) {
             id="standard-number"
             onChange={(e) =>
               setUser({
-                ...CVContext.user,
-                workExperinces: {
-                  ...CVContext.user.workExperinces,
-                  age: e.target.value,
-                },
+                ...user,
+                workExperinces: [
+                  ...user.workExperinces.slice(0, index),
+                  {
+                    ...user.workExperinces[index],
+                    end_date: e.target.value,
+                  },
+                  ...user.workExperinces.slice(index + 1),
+                ],
               })
             }
             label="End Date"
