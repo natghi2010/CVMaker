@@ -134,21 +134,21 @@ export default function EducationParts({ index, name }) {
                 variant="standard"
               />
             )}
-            <TextField
-              id="standard-number"
-              helperText="yyyy"
-              onChange={(e) =>
-                setUser({
-                  ...user,
-                  Education: {
-                    ...user.Education,
-                    Graduating_Year: e.target.value,
-                  },
-                })
-              }
-              label="Graduating year"
-              variant="standard"
-            />
+              <TextField
+                id="graduating-year"
+                variant="standard"
+                label="Graduating Year"
+                type="date"
+                onChange={(e) => {
+                  setUser({
+                    ...user,
+                    basicInfo: { ...user.basicInfo, date_of_birth: e.target.value },
+                  });
+               }}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
           </div>
         )}
       </div>
