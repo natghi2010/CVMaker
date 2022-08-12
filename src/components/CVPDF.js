@@ -16,8 +16,6 @@ export default function CVPDF() {
         <span className="address-container">
         {CVContext.user.basicInfo.address}
         </span>
-        <span className="role-container">Her Job</span>
-        <span className="address-container">address</span>
       </div>
 
       <div className="contact-container">
