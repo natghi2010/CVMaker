@@ -5,10 +5,10 @@ import Stack from "@mui/material/Stack";
 import skillsref from "./reference/skillsref";
 import { CV } from "..//MainCard";
 import { useContext } from "react";
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 
 export default function Skills() {
-  const CVContext = React.useContext(CV);
+  const CVContext = useContext(CV);
 
   return (
     <Stack spacing={3} sx={{ width: 700 }}>

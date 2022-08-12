@@ -1,4 +1,4 @@
-import React, { createContext, useRef } from "react";
+import React, { createContext, useRef,useEffect } from "react";
 import FormContainer from "./FormContainer";
 import Sidenav from "./Sidenav";
 import Title from "./Title";
@@ -13,9 +13,13 @@ export const CV = createContext();
 function MainCard() {
   
   const [activeStep, setActiveStep] = React.useState(0);
+  var savedUser = JSON.parse(window.localStorage.getItem("user")).basicInfo;
+
+  console.log(savedUser);
+  
   const [user, setUser] = React.useState({
     basicInfo: {
-      name: window.localStorage.getItem("name") || "",
+      name: savedUser.name || "",
       date_of_birth: "",
       place_of_birth: "",
       gender:"",
@@ -67,6 +71,12 @@ function MainCard() {
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   });
+
+   useEffect(() => {
+    window.localStorage.setItem("user", JSON.stringify(user));
+  },[user]);
+
+
 
 
 

@@ -1,15 +1,47 @@
-import * as React from "react";
-import { Box, FormControl, Grid, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import {
+  Autocomplete,
+  Box,
+  FormControl,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Select,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { CV } from "../MainCard";
+import http from "../../data/http";
 
 export default function BasicInfo() {
   const CVContext = React.useContext(CV);
   const setUser = CVContext.setUser;
   const user = CVContext.user;
-  
+  const [loading,setLoading] = useState(false);
+  const [listOfContries, setListOfCountries] = useState([]);
+
+  const getNationalities = async () => {
+    setLoading(true);
+    const response = await http.post(
+      "https://countriesnow.space/api/v0.1/countries/positions/range",
+      {
+        type: "long",
+        min: 1,
+        max: 40,
+      }
+    );
+    setListOfCountries(response.data);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getNationalities();
+  },[]);
+
   return (
     <Box
-    className="educationParts"
+      className="educationParts"
       component="form"
       elevation={2}
       sx={{
@@ -24,7 +56,6 @@ export default function BasicInfo() {
       noValidate
       autoComplete="off"
     >
-    
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <TextField
@@ -33,9 +64,11 @@ export default function BasicInfo() {
             label="Name"
             value={user.basicInfo.name}
             onChange={(e) => {
-              setUser({ ...user, basicInfo: { ...user.basicInfo, name: e.target.value } });
-               window.localStorage.setItem("name", e.target.value);
-            } }
+              setUser({
+                ...user,
+                basicInfo: { ...user.basicInfo, name: e.target.value },
+              });
+            }}
           />
         </Grid>
         <Grid item xs={6}>
@@ -45,8 +78,11 @@ export default function BasicInfo() {
             label="Date of Birth"
             type="date"
             onChange={(e) => {
-              setUser({ ...user, basicInfo: { ...user.basicInfo, date_of_birth: e.target.value } });
-            } }
+              setUser({
+                ...user,
+                basicInfo: { ...user.basicInfo, date_of_birth: e.target.value },
+              });
+            }}
             InputLabelProps={{
               shrink: true,
             }}
@@ -54,23 +90,26 @@ export default function BasicInfo() {
         </Grid>
         <Grid item xs={6}>
           <FormControl
-          variant="standard"
-          sx={{ mr: 10, ml: 5, mb: 5.5, mt: 0.5, minWidth: "30ch" }}
+            variant="standard"
+            sx={{ mr: 10, ml: 5, mb: 5.5, mt: 0.5, minWidth: "30ch" }}
           >
-          <InputLabel id="gender">Gender</InputLabel>
-          <Select
-            id="gen"
-            onChange={(e) =>
-              setUser({
-                ...CVContext.user,
-                basicInfo: { ...CVContext.user.basicInfo, gender: e.target.value },
-              })
-            }
-          >
-            <MenuItem value={"Female"}>Female</MenuItem>
-            <MenuItem value={"Male"}>Male</MenuItem>
-            <MenuItem value={"Prefer Not To Say"}>Prefer Not To Say</MenuItem>
-          </Select>
+            <InputLabel id="gender">Gender</InputLabel>
+            <Select
+              id="gen"
+              onChange={(e) =>
+                setUser({
+                  ...CVContext.user,
+                  basicInfo: {
+                    ...CVContext.user.basicInfo,
+                    gender: e.target.value,
+                  },
+                })
+              }
+            >
+              <MenuItem value={"Female"}>Female</MenuItem>
+              <MenuItem value={"Male"}>Male</MenuItem>
+              <MenuItem value={"Prefer Not To Say"}>Prefer Not To Say</MenuItem>
+            </Select>
           </FormControl>
         </Grid>
         <Grid item xs={6}>
@@ -79,22 +118,26 @@ export default function BasicInfo() {
             label="Place Of Birth"
             variant="standard"
             onChange={(e) => {
-              setUser({ ...user, basicInfo: { ...user.basicInfo, place_of_birth: e.target.value } });
-            } }
+              setUser({
+                ...user,
+                basicInfo: {
+                  ...user.basicInfo,
+                  place_of_birth: e.target.value,
+                },
+              });
+            }}
           />
         </Grid>
         <Grid item xs={6}>
-          <TextField
-          id="standard-basic"
-          onChange={(e) =>
-            setUser({
-              ...CVContext.user,
-              basicInfo: { ...CVContext.user.basicInfo, nationality: e.target.value },
-            })
-          }
-          label="Nationality"
-          variant="standard"
-          />
+          {!loading && <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={listOfContries}
+            getOptionLabel={(option) => option.name}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField {...params} label="Nationality" />}
+          />}
+          {loading && <Typography center>Loading..</Typography>}
         </Grid>
         <Grid item xs={6}>
           <TextField
@@ -102,8 +145,11 @@ export default function BasicInfo() {
             label="Address"
             variant="standard"
             onChange={(e) => {
-              setUser({ ...user, basicInfo: { ...user.basicInfo, address: e.target.value } });
-            } }
+              setUser({
+                ...user,
+                basicInfo: { ...user.basicInfo, address: e.target.value },
+              });
+            }}
           />
         </Grid>
         <Grid item xs={6}>
@@ -112,28 +158,29 @@ export default function BasicInfo() {
             label="Phone Number"
             variant="standard"
             onChange={(e) => {
-              setUser({ ...user, basicInfo: { ...user.basicInfo, phone_number: e.target.value } });
-            } }
+              setUser({
+                ...user,
+                basicInfo: { ...user.basicInfo, phone_number: e.target.value },
+              });
+            }}
           />
-          </Grid>
+        </Grid>
         <Grid item xs={6}>
           <TextField
             id="email"
             label="Email"
             variant="standard"
             onChange={(e) => {
-              setUser({ ...user, basicInfo: { ...user.basicInfo, email: e.target.value } });
-            } }
+              setUser({
+                ...user,
+                basicInfo: { ...user.basicInfo, email: e.target.value },
+              });
+            }}
           />
-          </Grid>
+        </Grid>
       </Grid>
-            
 
-
-
-
-
-        {/*
+      {/*
         <div>
         <TextField
           id="standard-basic"
