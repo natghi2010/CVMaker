@@ -13,16 +13,12 @@ import {
 } from "@mui/material";
 import { CV } from "../MainCard";
 import http from "../../data/http";
+import nationality from "./reference/basicInfoRef";
 
 export default function BasicInfo() {
   const CVContext = React.useContext(CV);
   const setUser = CVContext.setUser;
   const user = CVContext.user;
-
-  const [countries,setCountries] = useState([]);
-
-  
- 
 
   return (
     <Box
@@ -114,6 +110,40 @@ export default function BasicInfo() {
             </Select>
           </FormControl>
         </Grid>
+        <Grid item xs={6}>
+        <Autocomplete
+      id="nationality"
+      sx={{ width: 300 }}
+      options={nationality}
+      autoHighlight
+      getOptionLabel={(option) => option.label}
+      renderOption={(props, option) => (
+        <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
+          <img
+            loading="lazy"
+            width="20"
+            src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
+            srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
+            alt=""
+          />
+          {option.label} ({option.code}) +{option.phone}
+        </Box>
+      )}
+      renderInput={(params) => (
+        <TextField
+          {...params}
+          label="Nationality"
+          inputProps={{
+            ...params.inputProps,
+            autoComplete: 'new-password', // disable autocomplete and autofill
+          }}
+        />
+      )}
+    />
+        
+        </Grid>
+
+
         <Grid item xs={6}>
           <TextField
             id="birthPlace"
