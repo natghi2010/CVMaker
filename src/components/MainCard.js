@@ -12,10 +12,10 @@ export const CV = createContext();
 
 function MainCard() {
   
-  const [activeStep, setActiveStep] = React.useState(3);
+  const [activeStep, setActiveStep] = React.useState(0);
   const [user, setUser] = React.useState({
     basicInfo: {
-      name: "Daniel",
+      name: window.localStorage.getItem("name") || "",
       address: "18",
       email: "natghi2010@gmail.com",
       phone_number: "(647) 555-5555",
@@ -159,7 +159,7 @@ function MainCard() {
           handlePrint,
         }}
       >
-        <div className="cardBody" onClick={()=>{handlePrint()}}>
+        <div className="cardBody">
           <Sidenav />
           <FormContainer />
         </div>

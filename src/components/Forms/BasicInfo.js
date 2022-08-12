@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Stack, TextField } from "@mui/material";
+import { Box, Grid, Stack, TextField } from "@mui/material";
 import { CV } from "../MainCard";
 
 export default function BasicInfo() {
@@ -24,7 +24,72 @@ export default function BasicInfo() {
       noValidate
       autoComplete="off"
     >
-      <div>
+    
+      <Grid container spacing={2}>
+        <Grid item xs={6}>
+          <TextField
+            id="name"
+            variant="standard"
+            label="Name"
+            value={user.basicInfo.name}
+            onChange={(e) => {
+              setUser({ ...user, basicInfo: { ...user.basicInfo, name: e.target.value } });
+               window.localStorage.setItem("name", e.target.value);
+            } }
+          />
+        </Grid>
+
+
+   
+            <Grid item xs={6}>
+          <TextField
+            id="date"
+            variant="standard"
+            label="Date of Birth"
+            type="date"
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+          </Grid>
+
+            
+
+
+
+
+        <Grid item xs={6}>
+          <TextField
+            id="address"
+            label="Address"
+            variant="standard"
+            value={user.basicInfo.address}
+            onChange={(e) => {
+              setUser({ ...user, basicInfo: { ...user.basicInfo, address: e.target.value } });
+            } }
+          />
+        </Grid>
+
+        <Grid item xs={6}>
+          <TextField
+            id="email"
+            label="Email"
+            variant="standard"
+            value={user.basicInfo.email}
+            onChange={(e) => {
+              setUser({ ...user, basicInfo: { ...user.basicInfo, email: e.target.value } });
+            } }
+          />
+          </Grid>
+      </Grid>
+            
+
+
+
+
+
+        {/*
+        <div>
         <TextField
           id="standard-basic"
           onChange={(e) =>
@@ -105,7 +170,7 @@ export default function BasicInfo() {
           label="Email"
           variant="standard"
         />
-      </div>
+      </div> */}
     </Box>
   );
 }
