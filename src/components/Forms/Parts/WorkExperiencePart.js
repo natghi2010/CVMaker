@@ -3,6 +3,12 @@ import { Box, Button, Grid, TextField } from "@mui/material";
 import { useContext } from "react";
 import { CV } from "../../MainCard";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Picker from "react-month-picker";
+import MonthPicker from "react-month-picker";
+import { DatePicker } from "@mui/x-date-pickers-pro";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 
 export default function WorkExperincePart({ index }) {
   const CVContext = useContext(CV);
@@ -117,49 +123,66 @@ export default function WorkExperincePart({ index }) {
                 label="Description"
                 multiline
                 maxRows={10}
-                style ={{width: '85%',height: '500%'}} 
+                style={{ width: "85%", height: "500%" }}
               />
             </Grid>
-          </Grid>
-        </div>
-        <div>
-          <TextField
-            id="standard-number"
-            onChange={(e) =>
-              setUser({
-                ...user,
-                workExperinces: [
-                  ...user.workExperinces.slice(0, index),
-                  {
-                    ...user.workExperinces[index],
-                    start_date: e.target.value,
-                  },
-                  ...user.workExperinces.slice(index + 1),
-                ],
-              })
-            }
-            label="Start Date"
-            variant="standard"
-          />
 
-          <TextField
-            id="standard-number"
-            onChange={(e) =>
-              setUser({
-                ...user,
-                workExperinces: [
-                  ...user.workExperinces.slice(0, index),
-                  {
-                    ...user.workExperinces[index],
-                    end_date: e.target.value,
-                  },
-                  ...user.workExperinces.slice(index + 1),
-                ],
-              })
-            }
-            label="End Date"
-            variant="standard"
-          />
+            <Grid item xs={6} sm={6}>
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DatePicker
+                  views={["year", "month"]}
+                  label="Start Date"
+                  minDate={new Date("2012-03-01")}
+                  maxDate={new Date("2023-06-01")}
+                  value={new Date(user.workExperinces[index].start_date || "")}
+                  onChange={(date) => {
+                    setUser({
+                      ...user,
+                      workExperinces: [
+                        ...user.workExperinces.slice(0, index),
+                        {
+                          ...user.workExperinces[index],
+                          start_date: date,
+                        },
+                        ...user.workExperinces.slice(index + 1),
+                      ],
+                    });
+                  }}
+                  renderInput={(params) => (
+                    <TextField {...params} helperText={null} />
+                  )}
+                />
+              </LocalizationProvider>
+            </Grid>
+
+            <Grid item xs={6} sm={6}>
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DatePicker
+                  views={["year", "month"]}
+                  label="End Date"
+                  minDate={new Date("2012-03-01")}
+                  maxDate={new Date("2023-06-01")}
+                  value={new Date(user.workExperinces[index].end_date || "")}
+                  onChange={(date) => {
+                    setUser({
+                      ...user,
+                      workExperinces: [
+                        ...user.workExperinces.slice(0, index),
+                        {
+                          ...user.workExperinces[index],
+                          end_date: date,
+                        },
+                        ...user.workExperinces.slice(index + 1),
+                      ],
+                    });
+                  }}
+                  renderInput={(params) => (
+                    <TextField {...params} helperText={null} />
+                  )}
+                />
+              </LocalizationProvider>
+            </Grid>
+          </Grid>
         </div>
       </Box>
     </div>

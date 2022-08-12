@@ -27,8 +27,8 @@ export default function Skills() {
           <TextField
             {...params}
             variant="standard"
-            label="Multiple values"
-            placeholder="Favorites"
+            label="Technologies"
+            placeholder="--"
           />
         )}
       />
