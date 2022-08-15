@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import educationTypes from "./Forms/reference/educationTypeRef";
 import ReactToPrint, { useReactToPrint } from "react-to-print";
 import { Button } from "@mui/material";
+import { validateBasicInfo } from "../ValidateBasicInfo";
 
 export const CV = createContext();
 
@@ -109,54 +110,15 @@ function MainCard() {
   };
 
   const handleNext = () => {
+    if(!validateBasicInfo(user.basicInfo) && activeStep==0){
+      alert("BasicInfo Incomplete");
+      return false;
+    }
     if (activeStep === steps.length - 1) {
       handlePrint();
       return;
     }
-    const validateBasicInfo = (basicInfo) => {
-      if (basicInfo.name.length == 0) {
-        alert("Insert name");
-        return false;
-      }
-
-      if (basicInfo.date_of_birth.length == 0) {
-        alert("Insert Date of birth");
-        return false;
-      }
-      if (basicInfo.place_of_birth.length == 0) {
-        alert("Insert Place of birth");
-        return false;
-      }
-
-      if (basicInfo.gender.length == 0) {
-        alert("Insert Gender");
-        return false;
-      }
-      if (basicInfo.nationality.length == 0) {
-        alert("Insert Nationality");
-        return false;
-      }
-      if (basicInfo.address.length == 0) {
-        alert("Insert Address");
-        return false;
-      }
-      if (basicInfo.role.length == 0) {
-        alert("Insert Role");
-        return false;
-      }
-      if (basicInfo.email.length == 0) {
-        alert("Insert Email");
-        return false;
-      }
-      if (basicInfo.phone_number.length == 0) {
-        alert("Insert Phone number");
-        return false;
-      }
-    };
-
-    if (validateBasicInfo) {
-      setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    }
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleBack = () => {
