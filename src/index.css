@@ -72,6 +72,11 @@ hr{
     font-family: 'Square Peg', cursive !important;
 }
 
+.skill-name{
+    padding-top:200px !important;
+}
+
+
 .educationParts{
     padding: 15px;
     margin-bottom: 10px;
@@ -144,6 +149,7 @@ hr{
     }
     .section-container{
         margin-top: 40px;
+        margin-bottom: 20px;
         display: block;
         background-color: #f2f2f2;
 

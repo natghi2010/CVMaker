@@ -58,7 +58,6 @@ export default function Skills() {
           );
         })}
       </Grid>
-      <Button variant= "contained" onClick={()=>{CVContext.handlePrint()}}> Print</Button>
     </Stack>
   );
 }

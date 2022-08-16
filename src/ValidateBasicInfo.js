@@ -19,10 +19,7 @@
       alert("Insert Gender");
       valid=false;
     }
-    if (basicInfo.nationality.length == 0) {
-      alert("Insert Nationality");
-      valid=false;
-    }
+
     if (basicInfo.address.length == 0) {
       alert("Insert Address");
       valid=false;
