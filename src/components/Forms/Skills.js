@@ -58,7 +58,6 @@ export default function Skills() {
           );
         })}
       </Grid>
-   
     </Stack>
   );
 }
