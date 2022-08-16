@@ -64,7 +64,7 @@ export default function CVPDF() {
               <span>
                 <span className="job-title">{education.instiution_name}</span>
     
-                <span className="job-duration"> &nbsp;Oct 2015 - Jan 2017</span>
+                <span className="job-duration"> &nbsp;{new Date (education.graduation_year).getFullYear()}</span>
               </span>
             <span className="type-of-degree"> 
              <br/> 
@@ -93,7 +93,7 @@ export default function CVPDF() {
             <span>
               <span className="job-title">{experience.title}, {experience.company_name}</span>
   
-             <span className="job-duration"> &nbsp;{experience.start_date.toString} - {experience.end_date.toString}</span>
+             <span className="job-duration"> &nbsp;{new Date(experience.start_date).getMonth()} - {new Date(experience.end_date).getMonth()}</span>
             </span>
   
             <div className="job-description">

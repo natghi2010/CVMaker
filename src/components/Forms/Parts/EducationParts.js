@@ -7,10 +7,13 @@ import {
   MenuItem,
   Select,
   TextField,
-  Typography,
 } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { CV } from "../../MainCard";
+import { DatePicker } from "@mui/x-date-pickers-pro";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+
 export default function EducationParts({ index, name }) {
   const CVContext = React.useContext(CV);
   const setUser = CVContext.setUser;
@@ -129,21 +132,31 @@ export default function EducationParts({ index, name }) {
                 variant="standard"
               />
             )}
-              <TextField
-                id="graduating-year"
-                variant="standard"
-                label="Graduating Year"
-                type="date"
-                onChange={(e) => {
-                  setUser({
-                    ...user,
-                    basicInfo: { ...user.basicInfo, date_of_birth: e.target.value },
-                  });
-               }}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-              />
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DatePicker
+              views={["year"]}
+              label="Graduation Year"
+              minDate={new Date("1960-03-01")}
+              maxDate={new Date("2024-06-01")}
+              value={new Date(user.educationExperience[index].graduation_year || "")}
+              onChange={(date) => {
+                setUser({
+                  ...user,
+                  educationExperience: [
+                    ...user.educationExperience.slice(0, index),
+                    {
+                      ...user.educationExperience[index],
+                      graduation_year: date,
+                    },
+                    ...user.educationExperience.slice(index + 1),
+                  ],
+                });
+              }}
+              renderInput={(params) => (
+                <TextField {...params} helperText={null} />
+              )}
+            />
+          </LocalizationProvider>
           </div>
         )}
       </div>
