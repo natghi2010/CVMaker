@@ -55,26 +55,24 @@ export default function CVPDF() {
           <h3 className="section-title">Education</h3>
         </div>
 
-
-
         {CVContext.user.educationExperience.map(education=>{
-            return(
-              <div className="expereince-container">
-              
-              <span>
-                <span className="job-title">{education.instiution_name}</span>
-    
-                <span className="job-duration"> &nbsp;Oct 2015 - Jan 2017</span>
-              </span>
-            <span className="type-of-degree"> 
-             <br/> 
-             <i>Bacholors</i>
+          return(
+            <div className="expereince-container">
+            <span>
+              <span className="job-title">{education.institution_typ}, {education.instituion_name}</span>
+  
+             <span className="job-duration"> &nbsp;{education.graduation_year.toString()} </span>
             </span>
-            <hr/>
+  
+            <div className="job-description">
+              <p>
+                {education.degree_type}
+              </p>
             </div>
-            )
-      })}
-
+            <hr />
+          </div>
+          )
+        })}
        
 
 
@@ -93,7 +91,7 @@ export default function CVPDF() {
             <span>
               <span className="job-title">{experience.title}, {experience.company_name}</span>
   
-             <span className="job-duration"> &nbsp;{experience.start_date.toString} - {experience.end_date.toString}</span>
+             <span className="job-duration"> &nbsp;{experience.start_date.toString()} - {experience.end_date.toString()}</span>
             </span>
   
             <div className="job-description">
