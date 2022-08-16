@@ -72,9 +72,7 @@ hr{
     font-family: 'Square Peg', cursive !important;
 }
 
-.skill-name{
-    padding-top:200px !important;
-}
+
 
 
 .educationParts{
@@ -188,6 +186,7 @@ hr{
     .job-description{
         display: inline-block;
         margin-top: -10px;
+        min-height: 100px;
     }
 
 
@@ -203,6 +202,10 @@ hr{
         display: inline-block;
         float:right;
         margin-bottom: 10px;
+    }
+
+    .skill-name{
+        margin-bottom: 500px !important;
     }
 
 
