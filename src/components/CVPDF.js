@@ -87,21 +87,18 @@ export default function CVPDF() {
           <h3 className="section-title">Experience</h3>
         </div>
 
-        {CVContext.user.workExperinces.map(experince=>{
+        {CVContext.user.workExperinces.map(experience=>{
           return(
             <div className="expereince-container">
             <span>
-              <span className="job-title">Job Title, Company</span>
+              <span className="job-title">{experience.title}, {experience.company_name}</span>
   
-              <span className="job-duration"> &nbsp;Oct 2015 - Jan 2017</span>
+             <span className="job-duration"> &nbsp;{experience.start_date.toString} - {experience.end_date.toString}</span>
             </span>
   
             <div className="job-description">
               <p>
-                Id exercitation labore eiusmod laboris enim laborum ipsum
-                adipisicing irure aute ad eiusmod nostrud. Sit culpa proident
-                aliquip magna aliqua consectetur deserunt laboris pariatur.
-                Nostrud officia esse adipisicing irure nostrud Lorem anim dolor.
+                {experience.description}
               </p>
             </div>
             <hr />
