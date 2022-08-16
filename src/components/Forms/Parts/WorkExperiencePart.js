@@ -107,6 +107,7 @@ export default function WorkExperincePart({ index }) {
             <Grid item xs={12}>
               <TextField
                 id="standard-multiline-static"
+                value={user.workExperinces[index].description}
                 onChange={(e) =>
                   setUser({
                     ...user,

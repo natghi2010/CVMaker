@@ -12,7 +12,7 @@ import { validateBasicInfo } from "../ValidateBasicInfo";
 export const CV = createContext();
 
 function MainCard() {
-  const [activeStep, setActiveStep] = React.useState(2);
+  const [activeStep, setActiveStep] = React.useState(0);
 
   var userModel =
     window.localStorage.getItem("user") != null
@@ -23,7 +23,7 @@ function MainCard() {
             date_of_birth: "22/05/1995",
             place_of_birth: "Addis Ababa",
             gender: "Male",
-            nationality: "Ethiopian",
+            nationality: "Ethiopia",
             address: "Bole,Addis Ababa",
             role: "Engineer",
             email: "engineer@gmail.com",
@@ -42,7 +42,7 @@ function MainCard() {
             {
               company_name: "",
               title: "",
-              description: "",
+              description: "Sunt laboris velit et enim. Incididunt irure officia commodo pariatur elit. Pariatur irure commodo proident reprehenderit officia Lorem incididunt ipsum tempor. Consectetur exercitation dolor adipisicing culpa adipisicing est ea. Cillum eu tempor exercitation laboris reprehenderit cillum.",
               start_date: "",
               end_date: "",
             },
@@ -94,7 +94,7 @@ function MainCard() {
         {
           company_name: "",
           title: "",
-          description: "",
+          description: "Sunt laboris velit et enim. Incididunt irure officia commodo pariatur elit. Pariatur irure commodo proident reprehenderit officia Lorem incididunt ipsum tempor. Consectetur exercitation dolor adipisicing culpa adipisicing est ea. Cillum eu tempor exercitation laboris reprehenderit cillum.",
           start_date: "",
           end_date: "",
         },

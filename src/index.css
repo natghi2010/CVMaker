@@ -204,6 +204,10 @@ hr{
         margin-bottom: 500px !important;
     }
 
+    .school-description{
+        display: block !important;
+        margin-left: -200px !important  ;
+    }
 
     
 

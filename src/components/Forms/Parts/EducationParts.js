@@ -94,7 +94,10 @@ export default function EducationParts({ index, name }) {
                     },
                     ...user.educationExperience.slice(index + 1),
                   ],
+                  
                 })
+              
+                 
               }
               label={instituionType + " Name"}
               variant="standard"
@@ -125,7 +128,15 @@ export default function EducationParts({ index, name }) {
                 onChange={(e) =>
                   setUser({
                     ...user,
-                    Education: { ...user.Education, Major: e.target.value },
+                    educationExperience: [
+                      ...user.educationExperience.slice(0, index),
+                      {
+                        ...user.educationExperience[index],
+                        degree: e.target.value,
+                      },
+                      ...user.educationExperience.slice(index + 1),
+                    ],
+                    
                   })
                 }
                 label="Major"
@@ -134,7 +145,7 @@ export default function EducationParts({ index, name }) {
             )}
             <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DatePicker
-              views={["year"]}
+              views={["month","year"]}
               label="Graduation Year"
               minDate={new Date("1960-03-01")}
               maxDate={new Date("2024-06-01")}

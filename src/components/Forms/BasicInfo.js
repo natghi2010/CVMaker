@@ -118,6 +118,7 @@ export default function BasicInfo() {
       sx={{ width: 300 }}
       options={nationality}
       autoHighlight
+     
       getOptionLabel={(option) => option.label}
       renderOption={(props, option) => (
         <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
@@ -163,9 +164,7 @@ export default function BasicInfo() {
             }}
           />
         </Grid>
-        <Grid item xs={6}>
-        
-        </Grid>
+    
         <Grid item xs={6}>
           <TextField
             id="address"
